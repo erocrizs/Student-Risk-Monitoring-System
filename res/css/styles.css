@@ -1,5 +1,5 @@
-body {
-	background-color: #0F2965;
+body{
+	background-color: #A0BCF0;
 }
 
 .login-panel {
@@ -15,10 +15,37 @@ body {
 	height: 230px;
 }
 
+.login-panel .panel-heading, .login-button, .navbar-srms {
+	background-color: #244A91
+}
+
 .form-control {
 	margin-bottom: 10px;
 }
 
 .login-button {
 	float: right;
+}
+
+.navbar-brand {
+	color: #fff;
+	font-size: 1.5em;
+}
+
+.nav-tabs li a {
+	background-color: #e6e6e6;
+}
+
+.software-body, .nav-tabs li.active a, .nav-tabs li a:hover {
+	background-color: #fff;
+}
+
+.software-body {
+	height: 800px;
+}
+
+.content {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
 }
