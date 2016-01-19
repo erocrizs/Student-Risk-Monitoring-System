@@ -1,0 +1,39 @@
+body {
+	background-color: #fff;
+	padding: 0px;
+}
+
+.result-box, .filter-bar {
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+.result-box {
+	flex-grow: 2;
+	background-color: #FEFEFF;
+
+	display: flex;
+	justify-content: center;
+}
+
+.filter-bar {
+	background-color: #FFF6CC;
+	flex-grow: 1;
+}
+
+.UIBody {
+	display: flex;
+	justify-content: space-between;
+	padding top: 0px;
+}
+
+.table {
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.table th {
+	background-color: #537CC6;
+}
+
