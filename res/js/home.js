@@ -3,6 +3,7 @@ $(document).ready( function(){
 	$(".content").hide();
 	$("#s-profile-frame").show();
 
+	var index = ["#s-profile-frame", "#s-report-frame", "#a-profile-frame", "#a-report-frame"];
 	$(".nav-tabs li").click( function()
 	{
 		$(".nav-tabs li").attr("class", "");
@@ -10,21 +11,7 @@ $(document).ready( function(){
 		$(".content").hide();
 
 		var clickedIndex = $(this).index();
-		switch(clickedIndex)
-		{
-			case 0:
-				$("#s-profile-frame").show();
-				break;
-			case 1:
-				$("#s-report-frame").show();
-				break;
-			case 2:
-				$("#a-profile-frame").show();
-				break;
-			case 3:
-				$("#a-report-frame").show();
-				break;
-		}
+		$(index[clickedIndex]).show();
 	});
 
 });
