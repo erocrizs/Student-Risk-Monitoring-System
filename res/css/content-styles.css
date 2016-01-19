@@ -37,3 +37,19 @@ body {
 	background-color: #537CC6;
 }
 
+.control-bar {	
+	background-color: #FFB37B;
+	padding: 5px;
+}
+
+.control-bar .btn-primary {
+	background-color: #244A91;
+}
+
+.control-bar .btn-primary:hover {
+	background-color: #3368cc;
+}
+
+.danger-buttons {
+	float: right;
+}

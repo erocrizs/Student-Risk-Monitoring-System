@@ -41,11 +41,18 @@ body{
 }
 
 .software-body {
-	height: 800px;
+	height: 75vh;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .content {
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
+	overflow-y: hidden;
+}
+
+.tabs {
+	padding: 0px;
 }
