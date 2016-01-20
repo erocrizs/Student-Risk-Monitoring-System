@@ -11,9 +11,9 @@ $(document).ready(function() {
 			if(text===category_name[i])
 			{
 				if(category_clicked[i])
-					$(category_children[i]).hide();
+					$(category_children[i]).slideUp();
 				else
-					$(category_children[i]).show();
+					$(category_children[i]).slideDown();
 
 				category_clicked[i] = !category_clicked[i];
 			}
