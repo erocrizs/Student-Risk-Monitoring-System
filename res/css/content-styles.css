@@ -6,31 +6,26 @@ body {
 .result-box, .filter-bar {
 	height: 100vh;
 	box-sizing: border-box;
+	overflow-y: scroll;
+	padding: 0px;
 }
 
 .result-box {
-	flex-grow: 2;
 	background-color: #FEFEFF;
-
-	display: flex;
-	justify-content: center;
+	padding: 0px;
 }
 
 .filter-bar {
 	background-color: #FFF6CC;
-	flex-grow: 1;
 }
 
 .UIBody {
-	display: flex;
-	justify-content: space-between;
 	padding top: 0px;
+	margin: 0px;
 }
 
 .table {
 	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
 }
 
 .table th {
@@ -52,4 +47,26 @@ body {
 
 .danger-buttons {
 	float: right;
+}
+
+.filter-bar li {
+	list-style-type: none;
+	padding-left: 10px;
+}
+
+.filter-bar ul {
+	padding-left: 0px;
+}
+
+.filter-bar h5 {
+	margin-left: -10px;
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.filter-bar h5:hover{
+	background-color: #FFDA39;
 }
