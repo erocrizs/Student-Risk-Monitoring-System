@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$(".filters").hide();
+	$(".hidden-filter").hide();
 
 	var category_clicked = [false, false, false];
 	var category_name = ["Personal Information", "Risk Factors", "Protective Factors"];
@@ -23,4 +24,14 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	
+	$(".filters li .detail").click(function() {
+		var toggleable = $(this).parent().children(".hidden-filter");
+		if(toggleable.is(":visible"))
+			toggleable.slideUp();
+		else
+			toggleable.slideDown();
+	});
+	
 });

@@ -36,50 +36,148 @@
 							<ul class="filters" id="p-i-filter">
 								<li>
 									<p class="detail" >Name</p>
+									<div class="hidden-filter">
+										<p>First name contains:
+											<input type="text" name="firstname_filter" />
+										</p>
+										<p>Middle name contains:
+											<input type="text" name="middlename_filter" />
+										</p>
+										<p>Last name contains:
+											<input type="text" name="lastname_filter" />
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >ID Number</p>
+									<div class="hidden-filter">
+										<p>ID number contains:
+											<input type="text" name="id_number_filter" />
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Year Level</p>
+									<div class="hidden-filter">
+										<p>Year level is at least:
+											<input type="number" name="minimum_year_level_filter" min="1" max="5" value="1" step="1"/>
+										</p>
+										<p>Year level is at most:
+											<input type="number" name="maximum_year_level_filter" min="1" max="5" value="5" step="1"/>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Course</p>
+									<div class="hidden-filter">
+										<p>Course contains:
+											<input type="text" name="course_filter" />
+										</p>
+									</div>
 								</li>
 
 								<li>
-									<p class="detail" >Gender</p>
+									<p class="detail" >Sex</p>
+									<div class="hidden-filter">
+										<p>
+											<select name="sex_filter" >
+												<option value="male">Male</option>
+												<option value="female">Female</option>
+												<option value="any" selected>Any</option>
+											</select>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Birthday</p>
+									<div class="hidden-filter">
+										<p>Birthday is from:
+											<input type="date" name="minimum_birthday_filter" />
+										</p>
+										<p>to:
+											<input type="date" name="maximum_birthday_filter" />
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Age</p>
+									<div class="hidden-filter">
+										<p>Age is at least:
+											<input type="number" name="minimum_age_filter" min="0" step="1"/>
+										</p>
+										<p>Year level is at most:
+											<input type="number" name="maximum_age_filter" min="0" step="1"/>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Scholar</p>
+									<div class="hidden-filter">
+										<p>
+											<select name="scholar_filter" >
+												<option value="scholar">Scholar</option>
+												<option value="non-scholar">Non-Scholar</option>
+												<option value="any" selected>Any</option>
+											</select>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Dormer</p>
+									<div class="hidden-filter">
+										<p>
+											<select name="dormer_filter" >
+												<option value="dormer">Dormer</option>
+												<option value="non-dormer">Non-Dormer</option>
+												<option value="any" selected>Any</option>
+											</select>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Current Status</p>
+									<div class="hidden-filter">
+										<p>
+											<select name="status_filter" >
+												<option value="loa">LOA</option>
+												<option value="enrolled">Enrolled</option>
+												<option value="underload">Underload</option>
+												<option value="any" selected>Any</option>
+											</select>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >LoA and Withdrawals</p>
+									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_loaw_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_loaw_filter" min="0" step="1"/>
+										</p>
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >QPI</p>
+									<div class="hidden-filter">
+										<p>QPI of at least:
+											<input type="number" name="minimum_qpi_filter" min="0" max="4" step="1" value="0"/>
+										</p>
+										<p>and at most:
+											<input type="number" name="maximum_qpi_filter" min="0" max="4" step="1" value="4"/>
+										</p>
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -89,70 +187,104 @@
 							<ul class="filters" id="r-f-filter">
 								<li>
 									<p class="detail" >Level of Depression</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Level of Anxiety</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Suicidal Behavior</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Mental Disorder/Diagnosis</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >History of Alcohol/Substance Use</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Feeling of Hopelessness</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >History of Trauma or Abuse</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Major Physical Illness</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Past Suicidal Acts/Self-Harm</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family History of Suicide</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family History of Mental Health</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Presence of Stressful Life Event</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Relational or Social Loss</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Access to Lethal Means</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Disciplinary Cases</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family Structure</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Sexual Orientation</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 							</ul>
 						</li>
@@ -163,18 +295,26 @@
 							<ul class="filters" id="p-f-filter">
 								<li>
 									<p class="detail">Social Support</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
-								
+
 								<li>
 									<p class="detail">Spirituality</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
-								
+
 								<li>
 									<p class="detail">Coping Skills</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
-								
+
 								<li>
 									<p class="detail">Presence of Clinical Support for Mental and Health Disorder</p>
+									<div class="hidden-filter">
+									</div>
 								</li>
 							</ul>
 						</li>
