@@ -80,6 +80,10 @@ body {
 	background-color: #FFDA39;
 }
 
+.filters li {
+	margin-right: 20px;
+}
+
 .filters li .detail {
 	margin: 0px;
 	padding: 3px 0px 3px 0px;
