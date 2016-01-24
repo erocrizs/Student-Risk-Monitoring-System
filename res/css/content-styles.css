@@ -1,6 +1,7 @@
 body {
 	background-color: #fff;
 	padding: 0px;
+	height: 100vh;
 }
 
 .result-box, .filter-bar {
@@ -8,6 +9,7 @@ body {
 	box-sizing: border-box;
 	overflow-y: scroll;
 	padding: 0px;
+	height: 100%;
 }
 
 .result-box {
@@ -22,6 +24,11 @@ body {
 .UIBody {
 	padding top: 0px;
 	margin: 0px;
+	height: calc(100% - 43px);
+}
+
+.size-control {
+	height: inherit;
 }
 
 .table {
@@ -35,6 +42,7 @@ body {
 .control-bar {	
 	background-color: #FFB37B;
 	padding: 5px;
+	height: 43px;
 }
 
 .control-bar .btn-primary {
