@@ -81,7 +81,7 @@ body {
 }
 
 .filters li {
-	margin-right: 20px;
+	margin-right: 5%;
 }
 
 .filters li .detail {
@@ -100,4 +100,12 @@ body {
 .hidden-filter p {
 	margin: 0px;
 	padding-bottom: 10px;
+}
+
+.hidden-filter p input[type=text], .hidden-filter p input[type=date] {
+	width: 85%;
+}
+
+.hidden-filter p input[type=number] {
+	width: 35px;
 }
