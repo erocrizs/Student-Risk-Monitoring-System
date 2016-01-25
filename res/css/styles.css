@@ -50,7 +50,14 @@ body{
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
+}
+
+#s-profile-frame, #s-report-frame {
 	overflow-y: hidden;
+}
+
+#a-profile-frame, #a-report-frame {
+	overflow-y: scroll;
 }
 
 .tabs {
