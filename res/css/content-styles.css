@@ -39,8 +39,11 @@ body {
 	background-color: #537CC6;
 }
 
-.control-bar {	
+.control-bar, .add-by-file{	
 	background-color: #FFB37B;
+}
+
+.control-bar {
 	padding: 5px;
 	height: 43px;
 }
@@ -108,4 +111,31 @@ body {
 
 .hidden-filter p input[type=number] {
 	width: 35px;
+}
+
+#templateDownload, #uploadFile, #uploadFile input {
+	display: inline-block;
+}
+
+#templateDownload {
+	float: right;
+}
+
+.add-by-file {
+	padding: 5px 10px 5px 10px;
+	height: 85px;
+}
+
+.add-by-file h5, .add-by-form h5 {
+	font-weight: bold;
+}
+
+.add-by-form {
+	overflow-y: scroll;
+	height: calc(100% - 85px);
+	padding: 5px 10px 5px 10px;
+}
+
+.panel-title {
+	font-size: 2em;
 }
