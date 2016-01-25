@@ -163,10 +163,10 @@
 								<li>
 									<p class="detail" >QPI</p>
 									<div class="hidden-filter">
-										<p>QPI of at least:
+										<p>At least:
 											<input type="number" name="minimum_qpi_filter" min="0" max="4" step="1" value="0"/>
 										</p>
-										<p>and at most:
+										<p>At most:
 											<input type="number" name="maximum_qpi_filter" min="0" max="4" step="1" value="4"/>
 										</p>
 									</div>
@@ -180,102 +180,215 @@
 								<li>
 									<p class="detail" >Level of Depression</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_level_depression_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_level_depression_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Level of Anxiety</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_level_anxiety_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_level_anxiety_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Suicidal Behavior</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_suicidal_behavior_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_suicidal_behavior_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Mental Disorder/Diagnosis</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="mental_disorder_filter" value="1"/> Anxiety Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="2"/> Mood Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="3"/> Psychotic Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="4"/> Eating Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="5"/> Impulse Control and Addiction Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="6"/> Personality Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="7"/> Obsessive-Compulsive Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="8"/> Post-traumatic Stress Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="9"/> Stress Response Syndrome <br />
+											<input type="checkbox" name="mental_disorder_filter" value="10"/> Dissociative Disorders <br />
+											<input type="checkbox" name="mental_disorder_filter" value="11"/> Factitious Disorders <br />
+											<input type="checkbox" name="mental_disorder_filter" value="12"/> Sexual and Gender Disorders <br />
+											<input type="checkbox" name="mental_disorder_filter" value="13"/> Somatic Symptom Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="14"/> Tic Disorder <br />
+											<input type="checkbox" name="mental_disorder_filter" value="15"/> None <br />
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >History of Alcohol/Substance Use</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="alcohol_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="alcohol_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Feeling of Hopelessness</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="hopelessness_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="hopelessness_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >History of Trauma or Abuse</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="trauma_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="trauma_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Major Physical Illness</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="physical_illness_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="physical_illness_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Past Suicidal Acts/Self-Harm</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="self_harm_filter" value="1"/> Bleeding <br />
+											<input type="checkbox" name="self_harm_filter" value="2"/> Suffocation <br />
+											<input type="checkbox" name="self_harm_filter" value="3"/> Jumping From Height <br />
+											<input type="checkbox" name="self_harm_filter" value="4"/> Firearms <br />
+											<input type="checkbox" name="self_harm_filter" value="5"/> Hanging <br />
+											<input type="checkbox" name="self_harm_filter" value="6"/> Vehicular Impact <br />
+											<input type="checkbox" name="self_harm_filter" value="7"/> Poison <br />
+											<input type="checkbox" name="self_harm_filter" value="8"/> None <br />
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family History of Suicide</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="suicide_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="suicide_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family History of Mental Health</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="mental_health_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="mental_health_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Presence of Stressful Life Event</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="stressful_event_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="stressful_event_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Relational or Social Loss</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="loss_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="loss_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Access to Lethal Means</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="access_lethal_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="access_lethal_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Disciplinary Cases</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="disciplinary_cases_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="disciplinary_cases_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Family Structure</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="family_structure_filter" value="1"/> Nuclear Family<br />
+											<input type="checkbox" name="family_structure_filter" value="2"/> Single-parent <br />
+											<input type="checkbox" name="family_structure_filter" value="3"/> Stepfamily <br />
+											<input type="checkbox" name="family_structure_filter" value="4"/> Extended Family <br />
+											<input type="checkbox" name="family_structure_filter" value="5"/> Grandparent Family <br />
+											<input type="checkbox" name="family_structure_filter" value="6"/> Others <br />
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail" >Sexual Orientation</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="sexual_orientation_filter" value="1"/> Heterosexual<br />
+											<input type="checkbox" name="sexual_orientation_filter" value="2"/> Homosexual <br />
+											<input type="checkbox" name="sexual_orientation_filter" value="3"/> Bisexual <br />
+											<input type="checkbox" name="sexual_orientation_filter" value="4"/> Asexual <br />
+										</p>
 									</div>
 								</li>
 							</ul>
@@ -288,24 +401,47 @@
 								<li>
 									<p class="detail">Social Support</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_social_support_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_social_support_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail">Spirituality</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_spirituality_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_spirituality_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail">Coping Skills</p>
 									<div class="hidden-filter">
+										<p>At least:
+											<input type="number" name="minimum_coping_filter" min="0" step="1"/>
+										</p>
+										<p>At most:
+											<input type="number" name="maximum_coping_filter" min="0" step="1"/>
+										</p>
 									</div>
 								</li>
 
 								<li>
 									<p class="detail">Presence of Clinical Support for Mental and Health Disorder</p>
 									<div class="hidden-filter">
+										<p>
+											Show students who are: <br />
+											<input type="checkbox" name="clinical_support_filter" value="yes" checked /> Yes <br />
+											<input type="checkbox" name="clinical_support_filter" value="no" checked /> No
+										</p>
 									</div>
 								</li>
 							</ul>
