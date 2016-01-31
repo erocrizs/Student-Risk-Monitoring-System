@@ -12,58 +12,345 @@
 	</head>
 	
 	<body>
-		<div class="size-control">
+		<div class="size-control scrollable">
 			<div class="add-by-file">
-				<h5>Add Student Profiles by Group</h5>
-				<div>
-					<button type="button" class="btn btn-primary" id="templateDownload">Download Template</button>
-					<form id="uploadFile">
-						<input type="file" class="btn btn-primary" name="import-file" />
-						<input type="submit" class="btn btn-primary" value="Submit" />
-					</form>
+				<div class="container">
+					<h3>Add Student Profiles by Group</h3>
+					<p>Download the template and edit it using a spreadsheet program (i.e. Google Sheet, Microsoft Excel). Use one row per student. Fill all necessary details.</p>
+					<p>Once the file is ready, upload it here, then click the Submit button.</p>
+					<div>
+						<button type="button" class="btn btn-primary" id="templateDownload">Download Template</button>
+						<form id="uploadFile">
+							<input type="file" class="btn btn-primary" name="import-file" />
+							<input type="submit" class="btn btn-primary" value="Submit" />
+						</form>
+					</div>
 				</div>
 			</div>
 
 			<div class="add-by-form">
-				<h5>Add Student Profiles Individually</h5>
+				<div class="container">
+				<h3>Add Student Profiles Individually</h3>
 
-				<form>
-					<div class="container">
+					<form>
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<h6 class="panel-title">Personal Information</h6>
+								<strong> Personal Information </strong>
 							</div>
-							<div class="panel-body">
+							<div class="panel-body panel-body-colored">
 								<div class="row">
 									<div class="col-sm-6 col-xs-12">
 										<div class="container">
-											ID Number: <br />
-											<input type="text" name="id-number" class="form-control" /> <br />
-											Last Name: <br />
-											<input type="text" name="lastname"  class="form-control" /> <br />
-											First Name: <br />
-											<input type="text" name="firstname"  class="form-control" /> <br />
-											Middle Name: <br />
-											<input type="text" name="middlename"  class="form-control" /> <br />
-											Year Level: <br />
-											<input type="number" min="1" max="5" step="1" name="year" class="form-control" /> <br />
-											Course: <br />
-											<input type="text" name="course" class="form-control"  /> <br />
-											Sex: <br />
-											<input type="radio" name="sex" value="male" /> Male <br />
-											<input type="radio" name="sex" value="female" /> Female </br>
+
+											<label for="id-number">ID Number</label>
+											<input type="text" name="id-number" id="id-number" class="form-control column-input" /> <br />
+											
+											<label for="lastname">Last Name</label>
+											<input type="text" name="lastname" id="lastname" class="form-control column-input" /> <br />
+											
+											<label for="firstname">First Name</label>
+											<input type="text" name="firstname" id="firstname" class="form-control column-input" /> <br />
+											
+											<label for="middlename">Middle Name</label>
+											<input type="text" name="middlename" id="middlename" class="form-control column-input" /> <br />
+											
+											<label for="year">Year Level</label>
+											<input type="number" min="1" max="5" step="1" name="year" id="year" class="form-control column-input" /> <br />
+											
+											<label for="course">Course</label>
+											<input type="text" name="course" class="form-control column-input" id="course" /> <br />
+											
+											<label for="sex">Sex:</label><br/>
+											 <div class="btn-group radio-btn-group" id="sex" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="sex" value="male" /> Male
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="sex" value="female" /> Female
+												</label>
+											</div> <br /><br />
+
+											<label for="bday">Birthday</label>
+											<input type="date" name="bday" class="form-control column-input" id="bday" /> <br />
+
 										</div>
 									</div>
 									<div class="col-sm-6 col-xs-12">
-										
+										<div class="container">
+
+											<label for="contact-number">Contact Number</label>
+											<input type="tel" name="contact-number" id="contact-number" class="form-control column-input" /> <br />
+
+											<label for="email">Email Address</label>
+											<input type="email" name="email" id="email" class="form-control column-input" /> <br />
+											
+											<label for="is-scholar">Is the student a scholar?</label><br/>
+											 <div class="btn-group radio-btn-group" id="is-scholar" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="is-scholar" value="scholar" /> Scholar
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="is-scholar" value="non-scholar" /> Non-Scholar
+												</label>
+											</div> <br /><br />
+											
+											<label for="is-dormer">Is the student a dormer?</label><br/>
+											 <div class="btn-group radio-btn-group" id="is-dormer" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="is-dormer" value="dormer" /> Dormer
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="is-dormer" value="non-dormer" /> Non-Dormer
+												</label>
+											</div> <br /><br />
+
+											<label for="current-status">Current Status</label><br/>
+											 <div class="btn-group radio-btn-group" id="current-status" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="current-status" value="enrolled" /> Enrolled
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="current-status" value="underload" /> Underload
+												</label>
+												<label class="btn btn-default">
+													<input type="radio" name="current-status" value="LOA" /> LOA
+												</label>
+											</div> <br /><br />
+
+											<label for="record-of-loaw">Records of LOA/Withdrawals</label>
+											<input type="number" min="0" step="1" name="record-of-loaw" class="form-control column-input" id="record-of-loaw" /> <br />
+											
+											<label for="qpi">QPI</label>
+											<input type="number" min="0" max="4" name="qpi" class="form-control column-input" id="qpi" /> <br />
+
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
 
-				</form>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<strong> Risk Factors </strong>
+							</div>
+							<div class="panel-body panel-body-colored">
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="container">
 
+											<label for="level-depression">Level of Depression</label>
+											<input type="number" min="0" step="1" name="level-depression" id="level-depression" class="form-control column-input" /> <br />
+
+											<label for="level-anxiety">Level of Anxiety</label>
+											<input type="number" min="0" step="1" name="level-anxiety" id="level-anxiety" class="form-control column-input" /> <br />
+
+
+											<label for="suicidal-behaviour">Suicidal Behaviour</label>
+											<input type="number" min="0" step="1" name="suicidal-behaviour" id="suicidal-behaviour" class="form-control column-input" /> <br />
+
+
+						<!--Anxiety Disorders (1), Mood Disorder (2), Psychotic Disorder (3), Eating Disorder (4), Impulse Control and Addiction Disorder (5), Personality Disorder (6), Obsessive-Compulsive Disorder (7), Post-traumatic Stress Disorder (8), Stress Response Syndrome (9), Dissociative Disorders (10), Factitious Disorders (11), Sexual and Gender Disorders (12), Somatic Symptom Disorder (13), Tic Disorder (14), None (15) -->
+											<label for="mental-disorder">Presence of Mental Disorder/Diagnosis</label> <br />
+											<select id="mental-disorder" class="form-control column-input">
+												<option name="mental-disorder" value="anxiety">Anxiety Disorder</option>
+												<option name="mental-disorder" value="mood">Mood Disorder</option>
+												<option name="mental-disorder" value="psychotic">Psychotic Disorder</option>
+												<option name="mental-disorder" value="eating">Eating Disorder</option>
+												<option name="mental-disorder" value="impulse-control">Impulse Control and Addiction Disorder</option>
+												<option name="mental-disorder" value="personality">Personality Disorder</option>
+												<option name="mental-disorder" value="ocd">Obsessive-Compulsive Disorder</option>
+												<option name="mental-disorder" value="ptsd">Post-Traumatic Stress Disorder</option>
+												<option name="mental-disorder" value="stress-response">Stress Response Syndrome</option>
+												<option name="mental-disorder" value="dissociative">Dissociative Disorder</option>
+												<option name="mental-disorder" value="factitious">Factitious Disorder</option>
+												<option name="mental-disorder" value="sexual-gender">Sexual and Gender Disorder</option>
+												<option name="mental-disorder" value="somatic-syndrome">Somatic Symptom Disorder</option>
+												<option name="mental-disorder" value="tic">Tic Disorder</option>
+												<option name="mental-disorder" value="none" selected="selected">None</option>
+											</select> <br />
+
+											<label for="hopelessness">Feeling of Hopelessness</label><br/>
+											 <div class="btn-group radio-btn-group" id="hopelessness" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="hopelessness" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="hopelessness" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="substance-abuse">History of Alcohol/Substance Abuse</label><br/>
+											 <div class="btn-group radio-btn-group" id="substance-abuse" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="substance-abuse" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="substance-abuse" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="trauma-abuse">History of Trauma/Abuse</label><br/>
+											 <div class="btn-group radio-btn-group" id="trauma-abuse" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="trauma-abuse" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="trauma-abuse" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="physical-illness">Major Physical Illness</label><br/>
+											 <div class="btn-group radio-btn-group" id="physical-illness" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="physical-illness" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="physical-illness" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="self-harm">Past acts of self-harm</label> <br />
+											<select id="self-harm" class="form-control column-input">
+												<option name="self-harm" value="bleeding">Bleeding</option>
+												<option name="self-harm" value="suffocation">Suffocation</option>
+												<option name="self-harm" value="jumping">Jumping</option>
+												<option name="self-harm" value="firearms">Firearms</option>
+												<option name="self-harm" value="hanging">Hanging</option>
+												<option name="self-harm" value="vehicular">Vehicular Impact</option>
+												<option name="self-harm" value="poison">Poison</option>
+												<option name="self-harm" value="none" selected="selected">None</option>
+											</select> <br />
+
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="container">
+
+											<label for="family-suicide">Family History of Suicide</label><br/>
+											 <div class="btn-group radio-btn-group" id="family-suicide" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="family-suicide" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="family-suicide" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="family-mental">Family History of Mental Health</label><br/>
+											 <div class="btn-group radio-btn-group" id="family-mental" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="family-mental" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="family-mental" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="stressful-event">Presence of Stressful Life Event</label><br/>
+											 <div class="btn-group radio-btn-group" id="stressful-event" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="stressful-event" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="stressful-event" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="social-loss">Relational or Social Loss</label><br/>
+											 <div class="btn-group radio-btn-group" id="social-loss" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="social-loss" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="social-loss" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="lethal-means">Access to Lethal Means</label><br/>
+											 <div class="btn-group radio-btn-group" id="lethal-means" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="lethal-means" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="lethal-means" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="disciplinary-cases">Disciplinary Cases</label><br/>
+											 <div class="btn-group radio-btn-group" id="disciplinary-cases" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="disciplinary-cases" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="disciplinary-cases" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+											<label for="family-structure">Family Structure</label> <br />
+											<select id="family-structure" class="form-control column-input">
+												<option name="family-structure" value="nuclear">Nuclear Family</option>
+												<option name="family-structure" value="single-parent">Single-Parent Family</option>
+												<option name="family-structure" value="step">Stepfamily</option>
+												<option name="family-structure" value="extended">Extended Family</option>
+												<option name="family-structure" value="grandparents">Grandparents Family</option>
+												<option name="family-structure" value="others">Others</option>
+											</select> <br />
+
+											<label for="sexual-orientation">Sexual Orientation</label> <br />
+											<select id="sexual-orientation" class="form-control column-input">
+												<option name="sexual-orientation" value="nuclear">Heterosexual</option>
+												<option name="sexual-orientation" value="single-parent">Homosexual</option>
+												<option name="sexual-orientation" value="step">Bisexual</option>
+												<option name="sexual-orientation" value="extended">Asexual</option>
+											</select> <br />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<strong> Protective Factors </strong>
+							</div>
+							<div class="panel-body panel-body-colored">
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="container">
+
+											<label for="social-support">Social Support</label>
+											<input type="number" min="0" step="1" name="social-support" id="social-support" class="form-control column-input" /> <br />
+
+											<label for="spirituality">Spirituality</label>
+											<input type="number" min="0" step="1" name="spirituality" id="spirituality" class="form-control column-input" /> <br />
+
+										</div>
+									</div>
+									<div class="col-sm-6 col-xs-12">
+										<div class="container">
+
+											<label for="coping-skills">Coping Skills</label>
+											<input type="number" min="0" step="1" name="coping-skills" id="coping-skills" class="form-control column-input" /> <br />
+											
+											<label for="clinical-support">Presence of clinical support for mental and health disorder</label><br/>
+											 <div class="btn-group radio-btn-group" id="clinical-support" data-toggle="buttons" required>
+												<label class="btn btn-default">
+													<input type="radio" name="clinical-support" value="yes" /> Yes
+												</label> 
+												<label class="btn btn-default">
+													<input type="radio" name="clinical-support" value="no" /> No
+												</label>
+											</div> <br /><br />
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+							<input type="submit" class="btn btn-primary" id="add-student-btn" value="Add Student" />
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>

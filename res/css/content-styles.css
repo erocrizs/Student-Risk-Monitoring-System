@@ -56,7 +56,7 @@ body {
 	background-color: #3368cc;
 }
 
-.danger-buttons {
+.danger-buttons, #templateDownload{
 	float: right;
 }
 
@@ -117,13 +117,8 @@ body {
 	display: inline-block;
 }
 
-#templateDownload {
-	float: right;
-}
-
 .add-by-file {
-	padding: 5px 10px 5px 10px;
-	height: 85px;
+	padding: 5px 10px 30px 10px;
 }
 
 .add-by-file h5, .add-by-form h5 {
@@ -131,11 +126,38 @@ body {
 }
 
 .add-by-form {
-	overflow-y: scroll;
-	height: calc(100% - 85px);
 	padding: 5px 10px 5px 10px;
 }
 
 .panel-title {
 	font-size: 2em;
+}
+
+.panel-body-colored {
+	background-color: #CEDEFB;
+}
+
+.scrollable {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.column-input, .radio-btn-group {
+	width: 100vh;
+	max-width: 350px;
+}
+
+.radio-btn-group {
+	table-layout: fixed;
+}
+
+.radio-btn-group label {
+	width: 100px;
+}
+
+#add-student-btn {
+	height: 3em;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
 }
