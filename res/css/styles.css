@@ -2,6 +2,8 @@ body{
 	background-color: #A0BCF0;
 }
 
+/* Login */
+
 .login-panel {
 	position: absolute;
 	display: inline-block;
@@ -11,29 +13,60 @@ body{
     right: 0;
     margin: auto;
 	
-	width: 500px;
-	height: 230px;
+	width: 300px;
+	height: 170px;
+}
+
+.login-panel .panel-title {
+	font-size: 1.3em;
+	text-align: center;
 }
 
 .login-panel .panel-heading, .login-button, .navbar-srms {
-	background-color: #244A91
+	background-color: #244A91;
 }
 
-.form-control {
+.login-panel .form-control{
 	margin-bottom: 10px;
+	padding: 5px;
+	height: 2em;
+	width: 250px;
+	font-size: 1em;
 }
 
-.login-button {
+.login-panel .login-button {
+	height: 2em;
 	float: right;
+	font-size: 1em;
+	padding: 3px 12px 3px 12px;
 }
+
+.login-panel .panel-body {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Main */
 
 .navbar-brand {
 	color: #fff;
-	font-size: 1.5em;
+	font-size: 1.2em;
+}
+
+.nav-tabs {
+	border: 0px;
 }
 
 .nav-tabs li a {
 	background-color: #e6e6e6;
+	font-size: 1em;
+	padding: 5px 10px 5px 10px;
+}
+
+.nav-tabs li a, .nav-tabs li a:hover {
+	border: 1px solid #244A91;
 }
 
 .software-body, .nav-tabs li.active a, .nav-tabs li a:hover {
