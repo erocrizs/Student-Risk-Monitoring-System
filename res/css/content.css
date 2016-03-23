@@ -19,6 +19,19 @@
 	justify-content: space-between;
 }
 
+.center-align {
+	align-items: center;
+}
+
+.form-control {
+	height: 2em;
+}
+
+.padded-side {
+	box-sizing: border-box;
+	padding: 0px 20px 0px 20px;
+}
+
 /* Add Profile Part */
 
 .add-by-file #choose-file {
@@ -28,4 +41,24 @@
 
 .add-by-file #upload-file {
 	width: 120px;
+}
+
+.add-indiv label {
+	flex: 0 0 40%;
+}
+
+.add-indiv .form-control {
+	flex: 1 0 60%;
+}
+
+.add-indiv .entry-row {
+	margin: 5px 0px 5px 0px;
+}
+
+.add-indiv .three-col {
+	flex: 0 0 30%;
+}
+
+.add-indiv .two-col {
+	flex: 0 0 45%;
 }
