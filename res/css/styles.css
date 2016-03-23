@@ -69,13 +69,18 @@ body{
 	float: right;
 }
 
-.navbar-logout a {
+.navbar-logout {
 	float: right;
+	text-align: right;
 	margin-right: 10%;
 	color: #fff;
 	font-size: 1em;
 	padding: 15px;
 	text-decoration: none;
+}
+
+.navbar-logout a {
+	color: #fff;
 }
 
 .navbar-logout a:hover {
