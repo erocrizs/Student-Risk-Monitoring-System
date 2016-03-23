@@ -1,0 +1,31 @@
+/* Global */
+
+.error-msg {
+	font-size: 0.9em;
+	color: #FF0000;
+}
+
+.success-msg {
+	font-size: 0.9em;
+	color: #009900;
+}
+
+.inline {
+	display: flex;
+	flex-direction: row;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+/* Add Profile Part */
+
+.add-by-file #choose-file {
+	width: 220px;
+	margin-right: 10px;
+}
+
+.add-by-file #upload-file {
+	width: 120px;
+}

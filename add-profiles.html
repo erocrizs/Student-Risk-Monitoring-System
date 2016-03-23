@@ -4,13 +4,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ateneo Strims</title>
 		<link href="res/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="res/css/styles.css" rel="stylesheet" />
+		<link href="res/css/content.css" rel="stylesheet" />
 		
 		<script src="res/js/jquery-2.1.4.min.js"></script>
 		<script src="res/js/bootstrap.min.js"></script>
 	</head>
 	
-	<body>
-		<h1>Add Profiles</h1>
+	<body class="container">
+		<div class="add-by-file">
+
+			<h3>Upload a spreadsheet (.xlsx) File</h3>
+			<p>
+				You can add multiple profiles at once by uploading a spreadsheet (.xlsx) file. Choose the spreadsheet file
+				that contains the profile details you want to add and then upload.
+			</p>
+
+			<div class="inline space-between">
+				<form action="?" method="post" >
+					<div class="inline">
+						<input type="file" class="btn btn-primary" name="xls-file" id="choose-file" />
+						<input type="submit" class="btn btn-primary" value="Upload File" id="upload-file" />
+					</div>
+				</form>
+				<a href="#"><button class="btn btn-primary">Download Template</button></a>
+			</div>
+
+			<div class="status">
+
+				<!----
+					<span class="error-msg">Upload failed. Please try again.</span>
+
+					<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
+					
+					<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
+				<!---->
+
+			</div>
+
+		</div>
+		<hr />
+		<div class="add-indiv">
+		</div>
 	</body>
 </html>
