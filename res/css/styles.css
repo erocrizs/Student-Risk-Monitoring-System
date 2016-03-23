@@ -55,9 +55,31 @@ body{
 
 /* Main */
 
+.navbar-header, .navbar-logout {
+	width: 500px;
+}
+
 .navbar-brand {
 	color: #fff;
-	font-size: 1.2em;
+	font-size: 1.3em;
+	margin-left: 10%;
+}
+
+.navbar-logout {
+	float: right;
+}
+
+.navbar-logout a {
+	float: right;
+	margin-right: 10%;
+	color: #fff;
+	font-size: 1em;
+	padding: 15px;
+	text-decoration: none;
+}
+
+.navbar-logout a:hover {
+	text-decoration: underline;
 }
 
 .nav-tabs {
