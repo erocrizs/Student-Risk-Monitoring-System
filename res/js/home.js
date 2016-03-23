@@ -1,9 +1,9 @@
 $(document).ready( function(){
 	
 	$(".content").hide();
-	$("#s-profile-frame").show();
+	$("#alert-profile-frame").show();
 
-	var index = ["#s-profile-frame", "#s-report-frame", "#a-profile-frame", "#a-report-frame"];
+	var index = ["#alert-profile-frame", "#s-profile-frame", "#s-report-frame", "#a-profile-frame", "#a-report-frame", "#manage-account-frame"];
 	$(".nav-tabs li").click( function()
 	{
 		$(".nav-tabs li").attr("class", "");
