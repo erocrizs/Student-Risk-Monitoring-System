@@ -71,3 +71,20 @@
 .add-indiv #add-profile {
 	width: 200px;
 }
+
+/* Alert Profile Part */
+
+.alert-profile .table {
+	border: 1px solid #244A91;
+	margin-top: 20px;
+}
+
+.alert-profile .table thead {
+	background-color: #244A91;
+	color: #FFF;
+}
+
+.alert-profile .table td, .alert-profile .table thead th {
+	border: 0px;
+	border-top: 1px solid #577dc4;
+}
