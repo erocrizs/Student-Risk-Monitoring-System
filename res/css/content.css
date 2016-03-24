@@ -19,6 +19,10 @@
 	justify-content: space-between;
 }
 
+.space-around {
+	justify-content: space-around;
+}
+
 .center-align {
 	align-items: center;
 }
@@ -61,4 +65,8 @@
 
 .add-indiv .two-col {
 	flex: 0 0 45%;
+}
+
+.add-indiv #add-profile {
+	width: 200px;
 }
