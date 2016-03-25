@@ -130,7 +130,6 @@ body.full {
 
 #search-profile .search-section {
 	flex: 0 0 300px;
-	background-color: green;
 
 }
 
@@ -155,4 +154,38 @@ body.full {
 #search-profile .result-section .table td, #search-profile .result-section .table thead th {
 	border: 0px;
 	border-top: 1px solid #577dc4;
+}
+
+#search-profile .result-section .table .btn {
+	width: 100%;
+}
+
+#search-profile .search-section li {
+	list-style-type: none;
+}
+
+#search-profile .search-section ul, #search-profile .search-section .indent {
+	padding-left: 10px;
+}
+
+#search-profile .search-section p {
+	font-size: 1.1em;
+	margin-bottom: 0px;
+}
+
+#search-profile .search-section .form-control {
+	width: 200px;
+}
+
+#search-profile .search-section .collapse-trigger {
+	cursor: pointer;
+	cursor: hand;
+
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
 }
