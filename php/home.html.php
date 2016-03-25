@@ -42,7 +42,7 @@
 			<iframe src="alert-profiles.html" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="search-profiles.html" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.html" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
-			<iframe src="add-profiles.html.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
+			<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="add-reports.html" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="manage-accounts.html" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
 		</div>

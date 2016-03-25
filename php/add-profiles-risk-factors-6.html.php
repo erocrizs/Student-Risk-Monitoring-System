@@ -15,7 +15,8 @@
 		<select name="trauma-abuse" id="trauma-abuse" form="add-profile-indiv" class="form-control">
 			<option value="" selected="selected"></option>
 			<option value="1">No</option>
-			<option value="2">Yes</option>
+			<option value="2">Not sure</option>
+			<option value="3">Yes</option>
 		</select>
 	</div>
 </div>

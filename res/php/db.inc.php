@@ -1,4 +1,5 @@
 <?php 
+
 	function connect($database_name, $username, $password) {
 		global $pdo;
 		try {
@@ -10,8 +11,8 @@
 		}
 	}
 
-	function login($username, $password, $type) {
-		global $type, $pdo;
+	function login($username, $password) {
+		global $pdo;
 		try {
 			$sql = "select type from account where binary username = :username and binary password = :password;";
 			$s = $pdo->prepare($sql);
@@ -23,7 +24,7 @@
 		}
 
 		while($account = $s->fetch()) {
-			$type = $account['type'];
+			$_SESSION['type'] = $account['type'];
 		}
 	}
 ?>

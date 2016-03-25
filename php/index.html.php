@@ -22,7 +22,7 @@
 					<div>
 						<input type="submit" class="btn btn-primary login-button" value="Log In"></input>
 						<?php 	global $type; 
-								if(isset($_POST["username"]) && $type == "") { ?>
+								if(isset($_POST["username"]) && !isset($_SESSION['type'])) { ?>
 									<span class="credential-warning">Invalid credentials.</span>
 						<?php } ?>
 					</div>
