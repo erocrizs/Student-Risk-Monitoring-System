@@ -2,6 +2,23 @@ body{
 	background-color: #A0BCF0;
 }
 
+.inline {
+	display: flex;
+	flex-direction: row;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.space-around {
+	justify-content: space-around;
+}
+
+.center-align {
+	align-items: center;
+}
+
 /* Login */
 
 .login-panel {
@@ -62,7 +79,6 @@ body{
 .navbar-brand {
 	color: #fff;
 	font-size: 1.3em;
-	margin-left: 10%;
 }
 
 .navbar-logout {
@@ -70,21 +86,6 @@ body{
 }
 
 .navbar-logout {
-	float: right;
-	text-align: right;
-	margin-right: 10%;
-	color: #fff;
-	font-size: 1em;
-	padding: 15px;
-	text-decoration: none;
-}
-
-.navbar-logout a {
-	color: #fff;
-}
-
-.navbar-logout a:hover {
-	text-decoration: underline;
 }
 
 .nav-tabs {
@@ -127,4 +128,24 @@ body{
 
 .tabs {
 	padding: 0px;
+}
+
+.navbar-logout #log-out-button {
+
+	float: right;
+	text-align: right;
+	color: #fff;
+	font-size: 1em;
+	padding: 15px;
+	text-decoration: none;
+
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+}
+
+.navbar-logout #log-out-button:hover {
+    border-bottom:1px solid #fff; 
+    cursor: pointer;
 }
