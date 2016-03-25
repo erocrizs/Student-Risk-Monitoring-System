@@ -33,18 +33,22 @@
 			 	<li role="presentation" class="active"><a href="#">Alert Profiles</a></li>
 			 	<li role="presentation"><a href="#">Search Profiles</a></li>
 			 	<li role="presentation"><a href="#">Search Reports</a></li>
-			 	<li role="presentation"><a href="#">Add Profiles</a></li>
-			 	<li role="presentation"><a href="#">Add Reports</a></li>
-			 	<li role="presentation"><a href="#">Manage Accounts</a></li>
+			 	<?php if($_SESSION['type'] == 'admin') { ?>
+				 	<li role="presentation"><a href="#">Add Profiles</a></li>
+				 	<li role="presentation"><a href="#">Add Reports</a></li>
+				 	<li role="presentation"><a href="#">Manage Accounts</a></li>
+			 	<?php } ?>
 			</ul>
 		</div>
 		<div class="container software-body">
 			<iframe src="alert-profiles.html" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="search-profiles.html" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.html" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
-			<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
-			<iframe src="add-reports.html" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
-			<iframe src="manage-accounts.html" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
+			<?php if($_SESSION['type'] == 'admin') { ?>
+				<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
+				<iframe src="add-reports.html" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
+				<iframe src="manage-accounts.html" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
+			<?php } ?>
 		</div>
 	</body>
 </html>

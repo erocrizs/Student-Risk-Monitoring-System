@@ -9,7 +9,11 @@
 	
 	magicQuotes();
 
-	if(isset($_POST['submit'])) {
+	if(isset($_POST['upload'])) {
+
+	}
+
+	if(isset($_POST['add'])) {
 		
 	}
 

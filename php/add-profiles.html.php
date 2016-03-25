@@ -24,7 +24,7 @@
 				<form action="?" method="post" >
 					<div class="inline">
 						<input type="file" class="btn btn-primary" name="xls-file" id="choose-file" />
-						<input type="submit" class="btn btn-primary" value="Upload File" id="upload-file" />
+						<input type="submit" name='upload' class="btn btn-primary" value="Upload File" id="upload-file" />
 					</div>
 				</form>
 				<a href="#"><button class="btn btn-primary">Download Template</button></a>
@@ -153,7 +153,7 @@
 
 				<br />
 				<div class="inline space-around">
-					<input type="submit" name = "submit" class="btn btn-primary" value="Add Profile" id="add-profile" />
+					<input type="submit" name = "add" class="btn btn-primary" value="Add Profile" id="add-profile" />
 				</div>
 				<br />
 			</form>
