@@ -74,9 +74,12 @@
 
 /* Alert Profile Part */
 
+.alert-profile h3 {
+	margin-top: 10px;
+}
+
 .alert-profile .table {
 	border: 1px solid #244A91;
-	margin-top: 20px;
 }
 
 .alert-profile .table thead {
@@ -92,4 +95,12 @@
 .alert-profile #refresh-button {
 	padding: 3px 12px 3px 12px;
 	height: 2.5em;
+}
+
+.alert-profile table, .alert-profile #alert-bar {
+	margin-top: 10px;
+}
+
+.alert-profile table .btn {
+	width: 100%;
 }

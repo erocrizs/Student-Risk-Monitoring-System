@@ -12,41 +12,43 @@
 	
 	<body>
 		<div class="padded-side alert-profile">
-			<div class="inline space-between center-align">
+			<div class="inline space-between center-align" id="alert-bar">
 				<h3>Students at Risk</h3>
 				<button class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
 			</div>
-			<table class="table table-hover">
-				<thead>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Yr</th>
-					<th>Course</th>
-					<th>Sex</th>
-					<th>Age</th>
-					<th>Risks</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>132408</td>
-						<td>Loremia, Aemielvin</td>
-						<td>3</td>
-						<td>BS CS</td>
-						<td>Male</td>
-						<td>19</td>
-						<td>5</td>
-					</tr>
-					<tr>
-						<td>132652</td>
-						<td>Martinez, Zachary Ivan</td>
-						<td>3</td>
-						<td>BS CS/BS DGDD</td>
-						<td>Male</td>
-						<td>19</td>
-						<td>6</td>
-					</tr>
-				</tbody>
-			</table>
+			<form action="?" method="post" target="_blank">
+				<table class="table table-hover">
+					<thead>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Yr</th>
+						<th>Course</th>
+						<th>Sex</th>
+						<th>Age</th>
+						<th>Risks</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="submit" class="btn" value="132408" /></td>
+							<td>Loremia, Aemielvin</td>
+							<td>3</td>
+							<td>BS CS</td>
+							<td>Male</td>
+							<td>19</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td><input type="submit" class="btn" value="132652" /></td>
+							<td>Martinez, Zachary Ivan</td>
+							<td>3</td>
+							<td>BS CS/BS DGDD</td>
+							<td>Male</td>
+							<td>19</td>
+							<td>6</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
 		</div>
 	</body>
 </html>
