@@ -3,11 +3,11 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ateneo Strims</title>
-		<link href="/strims/res/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="/strims/res/css/styles.css" rel="stylesheet" />
+		<link href="/Student-Risk-Monitoring-System/res/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/Student-Risk-Monitoring-System/res/css/styles.css" rel="stylesheet" />
 		
-		<script src="/strims/res/js/jquery-2.1.4.min.js"></script>
-		<script src="/strims/res/js/bootstrap.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/jquery-2.1.4.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/bootstrap.min.js"></script>
 	</head>
 	
 	<body>

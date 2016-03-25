@@ -3,12 +3,12 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ateneo Strims</title>
-		<link href="/strims/res/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="/strims/res/css/styles.css" rel="stylesheet" />
+		<link href="/Student-Risk-Monitoring-System/res/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/Student-Risk-Monitoring-System/res/css/styles.css" rel="stylesheet" />
 		
-		<script src="/strims/res/js/jquery-2.1.4.min.js"></script>
-		<script src="/strims/res/js/bootstrap.min.js"></script>
-		<script src="/strims/res/js/home.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/jquery-2.1.4.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/bootstrap.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/home.js"></script>
 	</head>
 	
 	<body>
@@ -39,7 +39,7 @@
 			</ul>
 		</div>
 		<div class="container software-body">
-			<iframe src="alert-profiles.html" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
+			<iframe src="alert-profiles.html.php" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="search-profiles.html" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.html" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="add-profiles.html" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>

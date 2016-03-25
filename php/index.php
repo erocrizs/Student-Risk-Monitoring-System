@@ -1,7 +1,7 @@
 <?php
-	include_once $_SERVER['DOCUMENT_ROOT'].'/strims/res/php/db.inc.php';
-	include_once $_SERVER['DOCUMENT_ROOT'].'/strims/res/php/magicQuotes.inc.php';
-	include_once $_SERVER['DOCUMENT_ROOT'].'/strims/res/php/otherHelpers.inc.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/Student-Risk-Monitoring-System/res/php/db.inc.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/Student-Risk-Monitoring-System/res/php/magicQuotes.inc.php';
+	include_once $_SERVER['DOCUMENT_ROOT'].'/Student-Risk-Monitoring-System/res/php/otherHelpers.inc.php';
 	
 	magicQuotes();
 	
