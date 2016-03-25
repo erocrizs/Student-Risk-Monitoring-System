@@ -137,9 +137,22 @@ body.full {
 #search-profile .result-section {
 	flex: 1 0 auto;
 	overflow-x: scroll;
-	background-color: red;
 }
 
 #search-profile .result-section, #search-profile .search-section {
 	overflow-y: scroll;
+}
+
+#search-profile .result-section .table {
+	border: 1px solid #244A91;
+}
+
+#search-profile .result-section .table thead {
+	background-color: #244A91;
+	color: #FFF;
+}
+
+#search-profile .result-section .table td, #search-profile .result-section .table thead th {
+	border: 0px;
+	border-top: 1px solid #577dc4;
 }
