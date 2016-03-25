@@ -14,7 +14,7 @@
 	function login($username, $password) {
 		global $pdo;
 		try {
-			$sql = "select type from account where binary username = :username and binary password = :password;";
+			$sql = "select * from account where binary username = :username and binary password = :password;";
 			$s = $pdo->prepare($sql);
 			$s->bindValue(":username", $username);
 			$s->bindValue(":password", $password);

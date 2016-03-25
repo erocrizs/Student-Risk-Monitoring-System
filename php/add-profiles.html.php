@@ -49,12 +49,20 @@
 		<div class="add-indiv">
 			<h3>Add a Student Profile</h3>
 			
-			<!-- Statuses --
-				<span class="error-msg">Adding failed. Please try again.</span>
+			<!-- Statuses -->
 
-				<span class="error-msg">The ID number has already been taken.</span>
-				
-				<span class="success-msg">Profile added successfully.</span>
+			<?php if(isset($_POST['submit'])) {
+				if($_POST['submit'] == 'success') { ?>
+					<span class="success-msg">Profile added successfully.</span>
+				<?php }
+				elseif($_POST['submit'] == 'id') { ?>
+					<span class="error-msg">The ID number has already been taken.</span>
+				<?php }
+				else { ?>
+					<span class="error-msg">Adding failed. Please try again.</span>
+				<?php }
+			} ?>
+
 			<!---->
 
 			<form action="?" method="post" id="add-profile-indiv">
@@ -145,7 +153,7 @@
 
 				<br />
 				<div class="inline space-around">
-					<input type="submit" class="btn btn-primary" value="Add Profile" id="add-profile" />
+					<input type="submit" name = "submit" class="btn btn-primary" value="Add Profile" id="add-profile" />
 				</div>
 				<br />
 			</form>

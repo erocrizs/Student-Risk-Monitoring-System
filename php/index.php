@@ -9,6 +9,7 @@
 
 	if(isset($_POST["log-out"])) {
 		$_SESSION["username"] = NULL;
+		$_SESSION['type'] = NULL;
 	}
 
 	connect('strims', 'root', 'Martinez');

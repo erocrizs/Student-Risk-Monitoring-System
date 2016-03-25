@@ -20,9 +20,8 @@
 					<input type="text" name ="username" class="form-control" placeholder="Username" />
 					<input type="password" name = "password" class="form-control" placeholder="Password" />
 					<div>
-						<input type="submit" class="btn btn-primary login-button" value="Log In"></input>
-						<?php 	global $type; 
-								if(isset($_POST["username"]) && !isset($_SESSION['type'])) { ?>
+						<input type="submit" name="log-in" class="btn btn-primary login-button" value="Log In"></input>
+						<?php 	if(isset($_POST['log-in'])) { ?>
 									<span class="credential-warning">Invalid credentials.</span>
 						<?php } ?>
 					</div>
