@@ -138,6 +138,7 @@ body{
 
 .navbar-logout #log-out-button {
 	text-decoration: none;
+	margin: 0px 5px 0px 5px;
 }
 
 .navbar-logout #log-out-button:hover {
@@ -147,7 +148,7 @@ body{
 .button-as-link {
     background:none!important;
     border:none; 
-    padding: 0px 5px 0px 5px !important;
+    padding: 0px !important;
     font: inherit;
     cursor: pointer;
 }
