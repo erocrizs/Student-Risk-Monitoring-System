@@ -1,5 +1,10 @@
 /* Global */
 
+body.full {
+	padding: 0px;
+	height: 100vh;
+}
+
 .error-msg {
 	font-size: 0.9em;
 	color: #FF0000;
@@ -103,4 +108,38 @@
 
 .alert-profile table .btn {
 	width: 100%;
+}
+
+/* Search Profile */
+
+#search-profile {
+	height: inherit;
+}
+
+#search-profile .control-bar {
+	padding: 10px;
+	border-bottom: 2px solid #aaa;
+}
+
+#search-profile .main {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	height: calc(100% - 56px);
+}
+
+#search-profile .search-section {
+	flex: 0 0 300px;
+	background-color: green;
+
+}
+
+#search-profile .result-section {
+	flex: 1 0 auto;
+	overflow-x: scroll;
+	background-color: red;
+}
+
+#search-profile .result-section, #search-profile .search-section {
+	overflow-y: scroll;
 }
