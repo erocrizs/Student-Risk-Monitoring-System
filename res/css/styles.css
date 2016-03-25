@@ -131,10 +131,12 @@ body{
 	padding: 0px;
 }
 
-.navbar-logout #log-out-button {
+.navbar-logout {
 	color: #fff;
 	font-size: 1em;
-	padding: 15px;
+}
+
+.navbar-logout #log-out-button {
 	text-decoration: none;
 }
 
@@ -145,7 +147,7 @@ body{
 .button-as-link {
     background:none!important;
     border:none; 
-    padding:0!important;
+    padding: 0px 5px 0px 5px !important;
     font: inherit;
     cursor: pointer;
 }
