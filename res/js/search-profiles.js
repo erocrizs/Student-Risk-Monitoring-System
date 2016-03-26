@@ -23,4 +23,9 @@ $(document).ready(function() {
 			children.css("background-color", "#fff");
 		}
 	);
+
+	$("#clear-button").click(function() {
+		$("#filter").trigger("reset");
+		$(".collapsee").hide();
+	});
 });
