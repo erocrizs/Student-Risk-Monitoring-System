@@ -9,4 +9,14 @@ $(document).ready(function() {
 		else
 			collapsing.slideDown();
 	});
+
+	$(".collapse-trigger").hover(
+		function() {
+			var parent = $(this).parent();
+			parent.css("background-color", "#ddd");
+		}, function () {
+			var parent = $(this).parent();
+			parent.css("background-color", "#fff");
+		}
+	);
 });
