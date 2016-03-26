@@ -189,3 +189,7 @@ body.full {
 	-o-user-select: none;
 	user-select: none;
 }
+
+#search-profile .search-section .collapsee {
+	margin-bottom: 5px;
+}
