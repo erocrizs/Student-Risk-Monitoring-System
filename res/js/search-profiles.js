@@ -13,7 +13,7 @@ $(document).ready(function() {
 	$(".collapse-trigger").hover(
 		function() {
 			var parent = $(this).parent();
-			parent.css("background-color", "#ddd");
+			parent.css("background-color", "#eee");
 		}, function () {
 			var parent = $(this).parent();
 			parent.css("background-color", "#fff");
