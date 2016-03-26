@@ -14,9 +14,13 @@ $(document).ready(function() {
 		function() {
 			var parent = $(this).parent();
 			parent.css("background-color", "#eee");
+			var children = parent.find(".collapse-trigger, .collapsee");
+			children.css("background-color", "#eee");
 		}, function () {
 			var parent = $(this).parent();
 			parent.css("background-color", "#fff");
+			var children = parent.find(".collapse-trigger, .collapsee");
+			children.css("background-color", "#fff");
 		}
 	);
 });
