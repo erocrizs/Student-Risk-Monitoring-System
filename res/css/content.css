@@ -191,9 +191,5 @@ body.full {
 }
 
 #search-profile .search-section .collapsee {
-	padding-bottom: 5px;
-}
-
-#search-profile .search-section li {
-	margin: 5px 0px 5px 0px;
+	margin-bottom: 5px;
 }
