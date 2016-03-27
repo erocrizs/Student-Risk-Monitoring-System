@@ -2,8 +2,8 @@
 
 <div class="inline space-between entry-row">
 	<div class="inline center-align two-col">
-		<label for="suicidal-behavoir-q">Suicidal Behaviors Questionaire - Revised: </label>
-		<select name="suicidal-behavoir-q" id="suicidal-behavoir-q" form="add-profile-indiv" class="form-control">
+		<label for="suicidal-behavior-q">Suicidal Behaviors Questionaire - Revised: </label>
+		<select name="suicidal-behavior" id="suicidal-behavior-q" form="add-profile-indiv" class="form-control">
 			<option value="" selected="selected"></option>
 			<option value="1">None</option>
 			<option value="2">Mild</option>

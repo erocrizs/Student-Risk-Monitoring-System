@@ -9,9 +9,8 @@
 		<script src="/Student-Risk-Monitoring-System/res/js/jquery-2.1.4.min.js"></script>
 		<script src="/Student-Risk-Monitoring-System/res/js/bootstrap.min.js"></script>
 	</head>
-	
 	<body class="container">
-
+		
 		<!-- Add By File Section -->
 		<div class="add-by-file">
 			<h3>Upload a Spreadsheet (.xlsx) File</h3>
@@ -21,9 +20,9 @@
 			</p>
 
 			<div class="inline space-between">
-				<form action="?" method="post" >
+				<form action="add-profiles.php" method="post" enctype="multipart/form-data">
 					<div class="inline">
-						<input type="file" class="btn btn-primary" name="xls-file" id="choose-file" />
+						<input type="file" name="file" class="btn btn-primary" id="choose-file" />
 						<input type="submit" name='upload' class="btn btn-primary" value="Upload File" id="upload-file" />
 					</div>
 				</form>
@@ -32,14 +31,18 @@
 
 			<div class="status">
 
-				<!-- Statuses --
-					<span class="error-msg">Upload failed. Please try again.</span>
-
-					<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
-					
-					<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
-				<!---->
-
+				<?php if(isset($_POST['upload'])) {
+					if($_POST['upload'] == 'success') { ?>
+						<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
+					<?php }
+					elseif($_POST['upload'] == 'type') { ?>
+						<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
+					<?php }
+					else { ?>
+						<span class="error-msg">Upload failed. Please try again.</span>
+					<?php }
+				} ?>
+				
 			</div>
 		</div>
 
@@ -49,13 +52,11 @@
 		<div class="add-indiv">
 			<h3>Add a Student Profile</h3>
 			
-			<!-- Statuses -->
-
-			<?php if(isset($_POST['submit'])) {
-				if($_POST['submit'] == 'success') { ?>
+			<?php if(isset($_POST['add'])) {
+				if($_POST['add'] == 'success') { ?>
 					<span class="success-msg">Profile added successfully.</span>
 				<?php }
-				elseif($_POST['submit'] == 'id') { ?>
+				elseif($_POST['add'] == 'id') { ?>
 					<span class="error-msg">The ID number has already been taken.</span>
 				<?php }
 				else { ?>
@@ -63,19 +64,17 @@
 				<?php }
 			} ?>
 
-			<!---->
-
-			<form action="?" method="post" id="add-profile-indiv">
+			<form action="add-profiles.php" method="post" id="add-profile-indiv">
 				<h4>Personal Information</h4>
 				<div class="padded-side">
 
-					<?php include 'add-profiles-personal-information.html.php' ?>
+					<?php include 'add-profiles-personal-information.html.php'; ?>
 
 					<br />
 					<label>QPI</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-qpi.html.php' ?>
+						<?php include 'add-profiles-qpi.html.php'; ?>
 
 					</div>
 				</div>
@@ -87,7 +86,7 @@
 					<label>Social Support (from PDS)</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-social-support.html.php' ?>
+						<?php include 'add-profiles-social-support.html.php'; ?>
 
 					</div>
 					<br />
@@ -95,7 +94,7 @@
 					<label>Spirituality (Spirituality Transcendence Index)</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-spirituality.html.php' ?>
+						<?php include 'add-profiles-spirituality.html.php'; ?>
 
 					</div>
 					<br />
@@ -103,7 +102,7 @@
 					<label>Coping Skills (Coping Strategies Inventory)</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-coping-skills.html.php' ?>
+						<?php include 'add-profiles-coping-skills.html.php'; ?>
 
 					</div>
 					<br />
@@ -114,13 +113,13 @@
 				<h4>Risk Factors</h4>
 				<div class="padded-side">
 					
-					<?php include 'add-profiles-risk-factors-1.html.php' ?>
+					<?php include 'add-profiles-risk-factors-1.html.php'; ?>
 
 					<br />
 					<label>Suicidal Behaviour</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-risk-factors-2.html.php' ?>
+						<?php include 'add-profiles-risk-factors-2.html.php'; ?>
 
 					</div>
 
@@ -128,25 +127,25 @@
 					<label>Basic Personality Inventory</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-risk-factors-3.html.php' ?>
+						<?php include 'add-profiles-risk-factors-3.html.php'; ?>
 
 					</div>
 
 					<br />
 					
-					<?php include 'add-profiles-risk-factors-4.html.php' ?>
+					<?php include 'add-profiles-risk-factors-4.html.php'; ?>
 
 					<br />
 					<label>History of Alcohol and/or Substance Abuse</label>
 					<div class="padded-side">
 						
-						<?php include 'add-profiles-risk-factors-5.html.php' ?>
+						<?php include 'add-profiles-risk-factors-5.html.php'; ?>
 
 					</div>
 
 					<br />
 					
-					<?php include 'add-profiles-risk-factors-6.html.php' ?>
+					<?php include 'add-profiles-risk-factors-6.html.php'; ?>
 
 				</div>
 				<br />

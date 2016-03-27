@@ -28,15 +28,15 @@
 
 <div class="inline space-between entry-row">
 	<div class="inline center-align two-col">
-		<label for="parental-marital-status">Parental marital status: </label>
-		<select name="parental-marital-status" id="parental-marital-status" form="add-profile-indiv" class="form-control">
+		<label for="parents-marital-status">Parent's marital status: </label>
+		<select name="parents-marital-status" id="parents-marital-status" form="add-profile-indiv" class="form-control">
 			<option value="" selected="selected"></option>
 			<option value="1">Very fulfilling and supportive</option>
 			<option value="2">Fulfilling and supportive</option>
 			<option value="3">Somewhat fulfilling and supportive</option>
 			<option value="4">Neutral</option>
 			<option value="5">Not fulfilling or supportive</option>
-			<option value="0">Others</option>
+			<option value="0">Not Applicable</option>
 		</select>
 	</div>
 	<div class="inline center-align two-col">
@@ -48,7 +48,7 @@
 			<option value="3">Somewhat fulfilling and supportive</option>
 			<option value="4">Neutral</option>
 			<option value="5">Not fulfilling or supportive</option>
-			<option value="0">Others</option>
+			<option value="0">Not Applicable</option>
 		</select>
 	</div>
 </div>
@@ -62,7 +62,7 @@
 			<option value="3">Somewhat fulfilling and supportive</option>
 			<option value="4">Neutral</option>
 			<option value="5">Not fulfilling or supportive</option>
-			<option value="0">Others</option>
+			<option value="0">Not Applicable</option>
 		</select>
 	</div>
 	<div class="inline center-align two-col">
