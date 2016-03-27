@@ -42,7 +42,7 @@
 		</div>
 		<div class="container software-body">
 			<iframe src="alert-profiles.html" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
-			<iframe src="search-profiles.html" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
+			<iframe src="search-profiles.php" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.html" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
 			<?php if($_SESSION['type'] == 'admin') { ?>
 				<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>

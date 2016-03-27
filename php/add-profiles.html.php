@@ -23,10 +23,10 @@
 				<form action="add-profiles.php" method="post" enctype="multipart/form-data">
 					<div class="inline">
 						<input type="file" name="file" class="btn btn-primary" id="choose-file" />
-						<input type="submit" name='upload' class="btn btn-primary" value="Upload File" id="upload-file" />
+						<button type="submit" name='upload' class="btn btn-primary" id="upload-file" /><span class="glyphicon glyphicon-upload"></span> Upload File</button>
 					</div>
 				</form>
-				<a href="#"><button class="btn btn-primary">Download Template</button></a>
+				<a href="res/others/Add Students Template.xlsx" download><button class="btn btn-primary"><span class="glyphicon glyphicon-download"></span> Download Template</button></a>
 			</div>
 
 			<div class="status">
