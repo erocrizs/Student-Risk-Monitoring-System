@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	$(".collapsee").hide();
+	$(".dim-screen").hide();
 
 	$(".collapse-trigger").click(function() {
 		var parent = $(this).parent();
@@ -27,5 +28,12 @@ $(document).ready(function() {
 	$("#clear-button").click(function() {
 		$("#filter").trigger("reset");
 		$(".collapsee").hide();
+	});
+
+	$("#delete-link").click(function() {
+		$(".dim-screen").fadeIn();
+	});
+	$("#cancel-delete").click(function() {
+		$(".dim-screen").fadeOut();
 	});
 });
