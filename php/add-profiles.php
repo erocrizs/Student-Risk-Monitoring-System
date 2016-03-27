@@ -41,7 +41,6 @@
 		}
 	}
 	else if(isset($_POST['add'])) {
-		echo $_POST['id-num'].' '.parseInput($_POST['id-num']);
 		$profile = array('id'=>parseInput($_POST['id-num']), 
 						'yr'=>parseInput($_POST['yr-lvl']), 
 						'course'=>parseInput($_POST['course']), 

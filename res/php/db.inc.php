@@ -148,4 +148,15 @@
 			return 'null';
 		return $string;
 	}
+
+	function structDelim($conditions, $delim) {
+		$return = $conditions[0];
+		for($i = 1; count($conditions); $i++) {
+			$return .= $delim.$conditions[$i];
+		}
+	}
+
+	function searchProfiles($conditions) {
+		
+	}
 ?>

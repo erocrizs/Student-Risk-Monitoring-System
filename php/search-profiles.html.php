@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ateneo Strims</title>
+		<link href="/Student-Risk-Monitoring-System/res/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/Student-Risk-Monitoring-System/res/css/content.css" rel="stylesheet" />
+		
+		<script src="/Student-Risk-Monitoring-System/res/js/jquery-2.1.4.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/bootstrap.min.js"></script>
+		<script src="/Student-Risk-Monitoring-System/res/js/search-profiles.js"></script>
+	</head>
+	
+	<body class="full">
+		<div id="search-profile">
+			<form action="search-profiles.php" method="post" id="filter">
+			</form>
+
+
+			<div class="control-bar inline space-between center-align">
+				<button type="submit" form="filter" name="apply-filter" class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-filter"></span> Apply Filter </button>
+				<div>
+					<button class="btn btn-primary" id="clear-button"><span class="glyphicon glyphicon-repeat"></span> Reset Filter </button>
+					<button class="btn btn-primary" id="delete-button"><span class="glyphicon glyphicon-trash"></span> Delete All </button>
+				</div>
+			</div>
+
+			<div class="main inline">
+				<div class="search-section">
+					<ul>
+						<li>
+							<p class="collapse-trigger">Personal Information</p>
+							<ul class="collapsee">
+								<li>
+									<p class="collapse-trigger">ID Number</p>
+									<p class="collapsee indent">
+										ID No. starts with:
+										<input type="text" name='id' class="form-control" name="id-number" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Risk Count</p>
+									<p class="collapsee indent">
+										At least:
+										<input type="number" name='risk-min' class="form-control" name="risk-min" min="1" step="1" form="filter"/>
+										and at most:
+										<input type="number" name='risk-max' class="form-control" name="risk-max" min="1" step="1" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Name</p>
+									<p class="collapsee indent">
+										First name has:
+										<input type="text" name='firstname' class="form-control" name="first-name" form="filter"/>
+										Last name has:
+										<input type="text" name='surname' class="form-control" name="last-name" form="filter"/>
+										Middle initial has:
+										<input type="text" name='mi' class="form-control" name="middle-initial" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Year Level</p>
+									<p class="collapsee indent">
+										At least:
+										<input type="number" name='yr-min' class="form-control" name="year-level-min" min="1" max="5" step="1" form="filter"/>
+										and at most:
+										<input type="number" name='yr-max' class="form-control" name="year-level-max" min="1" max="5" step="1" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Course</p>
+									<p class="collapsee indent">
+										Course has:
+										<input type="text" name='course' class="form-control" name="course" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Gender</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="gender[]" value="1" form="filter" checked /> Male <br />
+										<input type="checkbox" name="gender[]" value="2" form="filter" checked /> Female
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Birthday</p>
+									<p class="collapsee indent">
+										Born between:
+										<input type="date" name='date-min' class="form-control" name="birthday-min" form="filter" />
+										and:
+										<input type="date" name='date-max' class="form-control" name="birthday-max" form="filter" />
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Age</p>
+									<p class="collapsee indent">
+										At least:
+										<input type="number" name='age-min' class="form-control" name="age-min" min="1" step="1" form="filter"/>
+										and at most:
+										<input type="number" name='age-max' class="form-control" name="age-max" min="1" step="1" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Scholar</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="scholar[]" value="1" form="filter" checked /> Scholar <br />
+										<input type="checkbox" name="scholar[]" value="2" form="filter" checked /> Non-scholar
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Dormer</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="dormer[]" value="1" form="filter" checked /> Dormer <br />
+										<input type="checkbox" name="dormer[]" value="2" form="filter" checked /> Non-dormer
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Current Status</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="current-status[]" value="1" form="filter" checked /> Enrolled <br />
+										<input type="checkbox" name="current-status[]" value="2" form="filter" checked /> Underload <br />
+										<input type="checkbox" name="current-status[]" value="3" form="filter" checked /> LOA
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">LOA and W count</p>
+									<p class="collapsee indent">
+										At least:
+										<input type="number" name='loaw-record-min' class="form-control" name="loa-w-min" min="1" step="1" form="filter"/>
+										and at most:
+										<input type="number" name='loaw-record-max' class="form-control" name="loa-w-max" min="1" step="1" form="filter"/>
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">QPI</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">1st Year</p>
+											<ul class="collapsee">
+												<li>
+													<p class="collapse-trigger">Sem 1</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y1s1-min' class="form-control" name="qpi-1-1-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y1s1-max' class="form-control" name="qpi-1-1-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 2</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y1s2-min' class="form-control" name="qpi-1-2-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y1s2-max' class="form-control" name="qpi-1-2-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<p class="collapse-trigger">2nd Year</p>
+											<ul class="collapsee">
+												<li>
+													<p class="collapse-trigger">Sem Int</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y2s0-min' class="form-control" name="qpi-2-0-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y2s0-max' class="form-control" name="qpi-2-0-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 1</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y2s1-min' class="form-control" name="qpi-2-1-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y2s1-max' class="form-control" name="qpi-2-1-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 2</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y2s2-min' class="form-control" name="qpi-2-2-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y2s2-max' class="form-control" name="qpi-2-2-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<p class="collapse-trigger">3rd Year</p>
+											<ul class="collapsee">
+												<li>
+													<p class="collapse-trigger">Sem Int</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y3s0-min' class="form-control" name="qpi-3-0-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y3s0-max' class="form-control" name="qpi-3-0-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 1</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y3s1-min' class="form-control" name="qpi-3-1-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y3s1-max' class="form-control" name="qpi-3-1-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 2</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y3s2-min' class="form-control" name="qpi-3-2-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y3s2-max' class="form-control" name="qpi-3-2-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<p class="collapse-trigger">4th Year</p>
+											<ul class="collapsee">
+												<li>
+													<p class="collapse-trigger">Sem Int</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y4s0-min' class="form-control" name="qpi-4-0-min" min="0" max="4" step="1" form="filter"/>
+														and at most:
+														<input type="number" name='y4s0-max' class="form-control" name="qpi-4-0-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 1</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y4s1-min' class="form-control" name="qpi-4-1-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y4s1-max' class="form-control" name="qpi-4-1-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 2</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y4s2-min' class="form-control" name="qpi-4-2-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y4s2-max' class="form-control" name="qpi-4-2-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<p class="collapse-trigger">5th Year</p>
+											<ul class="collapsee">
+												<li>
+													<p class="collapse-trigger">Sem Int</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y5s0-min' class="form-control" name="qpi-5-0-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y5s0-max' class="form-control" name="qpi-5-0-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 1</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y5s1-min' class="form-control" name="qpi-5-1-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y5s1-max' class="form-control" name="qpi-5-1-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+												<li>
+													<p class="collapse-trigger">Sem 2</p>
+													<p class="collapsee indent">
+														At least:
+														<input type="number" name='y5s2-min' class="form-control" name="qpi-5-2-min" min="0" max="4" step="0.01" form="filter"/>
+														and at most:
+														<input type="number" name='y5s2-max' class="form-control" name="qpi-5-2-max" min="0" max="4" step="0.01" form="filter"/>
+													</p>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p class="collapse-trigger">Risk Factors</p>
+							<ul class="collapsee">
+								<li>
+									<p class="collapse-trigger">Level of Depression</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="lvl-of-depression[]" value="1" form="filter" checked /> None <br />
+										<input type="checkbox" name="lvl-of-depression[]" value="2" form="filter" checked /> Mild <br />
+										<input type="checkbox" name="lvl-of-depression[]" value="3" form="filter" checked /> Moderate <br />
+										<input type="checkbox" name="lvl-of-depression[]" value="4" form="filter" checked /> Moderately sever <br />
+										<input type="checkbox" name="lvl-of-depression[]" value="5" form="filter" checked /> Sever
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Level of Anxiety</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="lvl-of-anxiety[]" value="1" form="filter" checked /> Minimal <br />
+										<input type="checkbox" name="lvl-of-anxiety[]" value="2" form="filter" checked /> Mild <br />
+										<input type="checkbox" name="lvl-of-anxiety[]" value="3" form="filter" checked /> Moderate <br />
+										<input type="checkbox" name="lvl-of-anxiety[]" value="4" form="filter" checked /> Sever
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Suicidal Behavior</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Suicide Behavior Questionaire</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="suicide-behavior[]" value="1" form="filter" checked /> Minimal/Mild <br />
+												<input type="checkbox" name="suicide-behavior[]" value="2" form="filter" checked /> Positively screed
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Suicide Thoughts</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="suicidal-thoughts[]" value="1" form="filter" checked /> No <br />
+												<input type="checkbox" name="suicidal-thoughts[]" value="2" form="filter" checked /> Sometimes <br />
+												<input type="checkbox" name="suicidal-thoughts[]" value="3" form="filter" checked /> Yes
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p class="collapse-trigger">Basic Personality Inventory</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Hypochondriasis</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-hypochondriasis[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-hypochondriasis[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Depression</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-depression[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-depression[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Denial</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-denial[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-denial[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Interpersonal Problems</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-inter-prob[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-inter-prob[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Alienation</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-alienation[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-alienation[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Persecutory Ideas</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-perse-ideas[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-perse-ideas[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Anxiety</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-anxiety[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-anxiety[][]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Thinking Disorder</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-think-diso[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-think-diso[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Impulse Expression</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-imp-exp[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-imp-exp[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Social Introversion</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-soc-int[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-soc-int[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Self-Depreciation</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-self-dep[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-self-dep[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Deviation</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="bpi-deviation[]" value="1" form="filter" checked /> Low <br />
+												<input type="checkbox" name="bpi-deviation[]" value="2" form="filter" checked /> High
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p class="collapse-trigger">Presence of Mental Disorder/Diagnosis</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="mental-disorder[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="mental-disorder[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">History of Alcohol and/or Substance Use</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Alcohol use</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="alcohol-use[]" value="1" form="filter" checked /> No <br />
+												<input type="checkbox" name="alcohol-use[]" value="2" form="filter" checked /> Sometimes <br />
+												<input type="checkbox" name="alcohol-use[]" value="3" form="filter" checked /> Yes
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Drug use</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="drug-use[]" value="1" form="filter" checked /> No <br />
+												<input type="checkbox" name="drug-use[]" value="2" form="filter" checked /> Not Sure <br />
+												<input type="checkbox" name="drug-use[]" value="3" form="filter" checked /> Yes
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p class="collapse-trigger">Feeling of Hopelessness (GAPS)</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="feeling-hopeless[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="feeling-hopeless[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">History of Trauma/Abuse (GAPS)</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="trauma-abuse[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="trauma-abuse[]" value="2" form="filter" checked /> Not sure<br />
+										<input type="checkbox" name="trauma-abuse[]" value="3" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Major Physical Illness (from Health Record)</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="physical-illness[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="physical-illness[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Past Suicidal Acts/Self-Harm</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="past-suicidal-acts[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="past-suicidal-acts[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Family History of Suicide</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="family-history-suicide[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="family-history-suicide[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Family History of Mental Health</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="family-history-mental[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="family-history-mental[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Presence of Stressful Life Events</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="stressful-life-events[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="stressful-life-events[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Relational or Social Loss</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="relational-social-loss[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="relational-social-loss[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Access to Lethal Means (GAPS)</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="access-lethal-means[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="access-lethal-means[]" value="2" form="filter" checked /> Not sure<br />
+										<input type="checkbox" name="access-lethal-means[]" value="3" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Disciplinary Cases</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="disciplinary-cases[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="disciplinary-cases[]" value="2" form="filter" checked /> Yes
+									</p>
+								</li>
+								<li>
+									<p class="collapse-trigger">Sexual Orientation (GAPS)</p>
+									<p class="collapsee indent">
+										<input type="checkbox" name="sexual-orientation[]" value="1" form="filter" checked /> No <br />
+										<input type="checkbox" name="sexual-orientation[]" value="2" form="filter" checked /> Not sure<br />
+										<input type="checkbox" name="sexual-orientation[]" value="3" form="filter" checked /> Yes
+									</p>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p class="collapse-trigger">Protective Factors</p>
+							<ul class="collapsee">
+								<li>
+									<p class="collapse-trigger">Social Support (from PDS) </p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Family Living Situation</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="family-living-situation[]" value="1" form="filter" checked /> Parents living together <br />
+												<input type="checkbox" name="family-living-situation[]" value="2" form="filter" checked /> Parent/s working away from home <br />
+												<input type="checkbox" name="family-living-situation[]" value="3" form="filter" checked /> Living with extended family <br />
+												<input type="checkbox" name="family-living-situation[]" value="4" form="filter" checked /> One deceased parent <br />
+												<input type="checkbox" name="family-living-situation[]" value="5" form="filter" checked /> Single parent <br />
+												<input type="checkbox" name="family-living-situation[]" value="6" form="filter" checked /> Separated/divorced/annulled <br />
+												<input type="checkbox" name="family-living-situation[]" value="0" form="filter" checked /> Others
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Atmosphere at Home</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="atmosphere-at-home[]" value="1" form="filter" checked /> Supportive and encouraging<br />
+												<input type="checkbox" name="atmosphere-at-home[]" value="2" form="filter" checked /> Generally good<br />
+												<input type="checkbox" name="atmosphere-at-home[]" value="3" form="filter" checked /> Slightly stressful <br />
+												<input type="checkbox" name="atmosphere-at-home[]" value="4" form="filter" checked /> Conflicted
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Parents' Marital Status</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="parents-marital-status[]" value="1" form="filter" checked /> Very fulfilling and supportive<br />
+												<input type="checkbox" name="parents-marital-status[]" value="2" form="filter" checked /> Fulfilling and supportive<br />
+												<input type="checkbox" name="parents-marital-status[]" value="3" form="filter" checked /> Somewhat fulfilling and supportive <br />
+												<input type="checkbox" name="parents-marital-status[]" value="4" form="filter" checked /> Neutral<br />
+												<input type="checkbox" name="parents-marital-status[]" value="5" form="filter" checked /> Not fulfilling or supportive<br />
+												<input type="checkbox" name="parents-marital-status[]" value="0" form="filter" checked /> Not applicable
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Relationship with Father</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="rel-with-father[]" value="1" form="filter" checked /> Very fulfilling and supportive<br />
+												<input type="checkbox" name="rel-with-father[]" value="2" form="filter" checked /> Fulfilling and supportive<br />
+												<input type="checkbox" name="rel-with-father[]" value="3" form="filter" checked /> Somewhat fulfilling and supportive <br />
+												<input type="checkbox" name="rel-with-father[]" value="4" form="filter" checked /> Neutral<br />
+												<input type="checkbox" name="rel-with-father[]" value="5" form="filter" checked /> Not fulfilling or supportive<br />
+												<input type="checkbox" name="rel-with-father[]" value="0" form="filter" checked /> Not applicable
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">Relationship with Mother</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="rel-with-mother[]" value="1" form="filter" checked /> Very fulfilling and supportive<br />
+												<input type="checkbox" name="rel-with-mother[]" value="2" form="filter" checked /> Fulfilling and supportive<br />
+												<input type="checkbox" name="rel-with-mother[]" value="3" form="filter" checked /> Somewhat fulfilling and supportive <br />
+												<input type="checkbox" name="rel-with-mother[]" value="4" form="filter" checked /> Neutral<br />
+												<input type="checkbox" name="rel-with-mother[]" value="5" form="filter" checked /> Not fulfilling or supportive<br />
+												<input type="checkbox" name="rel-with-mother[]" value="0" form="filter" checked /> Not applicable
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p class="collapse-trigger">Spirituality (Spirituality Transcedence Index)</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Spiritual subscale</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="spiritual-subscale[]" value="1" form="filter" checked /> High<br />
+												<input type="checkbox" name="spiritual-subscale[]" value="2" form="filter" checked /> Moderate<br />
+												<input type="checkbox" name="spiritual-subscale[]" value="3" form="filter" checked /> Low
+											</p>
+										</li>
+										<li>
+											<p class="collapse-trigger">God subscale</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="god-subscale[]" value="1" form="filter" checked /> High<br />
+												<input type="checkbox" name="god-subscale[]" value="2" form="filter" checked /> Moderate<br />
+												<input type="checkbox" name="god-subscale[]" value="3" form="filter" checked /> Low
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p class="collapse-trigger">Coping Skills (Coping Strategies Inventory)</p>
+									<ul class="collapsee">
+										<li>
+											<p class="collapse-trigger">Problem Solving</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="problem-solving[]" value="1" form="filter" checked /> Very high<br />
+												<input type="checkbox" name="problem-solving[]" value="2" form="filter" checked /> High<br />
+												<input type="checkbox" name="problem-solving[]" value="3" form="filter" checked /> Average <br />
+												<input type="checkbox" name="problem-solving[]" value="4" form="filter" checked /> Low<br />
+												<input type="checkbox" name="problem-solving[]" value="5" form="filter" checked /> Very low
+											</p> 
+										</li>
+										<li>
+											<p class="collapse-trigger">Seeking Social Support</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="seeking-social-support[]" value="1" form="filter" checked /> Very high<br />
+												<input type="checkbox" name="seeking-social-support[]" value="2" form="filter" checked /> High<br />
+												<input type="checkbox" name="seeking-social-support[]" value="3" form="filter" checked /> Average <br />
+												<input type="checkbox" name="seeking-social-support[]" value="4" form="filter" checked /> Low<br />
+												<input type="checkbox" name="seeking-social-support[]" value="5" form="filter" checked /> Very low
+											</p> 
+										</li>
+										<li>
+											<p class="collapse-trigger">Avoidance</p>
+											<p class="collapsee indent">
+												<input type="checkbox" name="avoidance[]" value="1" form="filter" checked /> Very low<br />
+												<input type="checkbox" name="avoidance[]" value="2" form="filter" checked /> Low<br />
+												<input type="checkbox" name="avoidance[]" value="3" form="filter" checked /> Average <br />
+												<input type="checkbox" name="avoidance[]" value="4" form="filter" checked /> High<br />
+												<input type="checkbox" name="avoidance[]" value="5" form="filter" checked /> Very high
+											</p>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="result-section">
+					<form action="?" method="post" target="_blank" id="link-table">
+						<table class="table table-hover">
+							<thead>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Yr</th>
+								<th>Course</th>
+								<th>Sex</th>
+								<th>Age</th>
+								<th>Risks</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="submit" class="btn" value="132408" form="link-table"/></td>
+									<td>Loremia, Aemielvin</td>
+									<td>3</td>
+									<td>BS CS</td>
+									<td>Male</td>
+									<td>19</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td><input type="submit" class="btn" value="132652" form="link-table"/></td>
+									<td>Martinez, Zachary Ivan</td>
+									<td>3</td>
+									<td>BS CS/BS DGDD</td>
+									<td>Male</td>
+									<td>19</td>
+									<td>6</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
