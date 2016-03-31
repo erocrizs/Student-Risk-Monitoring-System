@@ -20,10 +20,14 @@
 	}
 
 	if(isset($_SESSION["username"])) {
-		login($_SESSION["username"], $_SESSION["password"]);
-		if(isset($_SESSION['type'])) {
+		$type = login($_SESSION["username"], $_SESSION["password"]);
+		if($type != '') {
+			$_SESSION['type'] = $type;
 			include 'home.html.php';
 			exit();
+		}
+		else if($type == 'connection') {
+			
 		}
 	}
 
