@@ -31,38 +31,37 @@
 
 			<div class="status">
 
-				<?php if(isset($_POST['upload'])) {
-					if($_POST['upload'] == 'success') { ?>
+				<?php if(isset($_POST['upload'])) : ?>
+					<?php if($_POST['upload'] == 'success') : ?>
 						<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
-					<?php }
-					elseif($_POST['upload'] == 'type') { ?>
+					<?php endif; ?>
+					<?php elseif($_POST['upload'] == 'type') : ?>
 						<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
-					<?php }
-					else { ?>
+					<?php endif; ?>
+					<?php else : ?>
 						<span class="error-msg">Upload failed. Please try again.</span>
-					<?php }
-				} ?>
+					<?php endif; ?>
+				<?php endif; ?>
 				
 			</div>
 		</div>
 
 		<hr />
 
-		<!-- Add Individually Section -->
 		<div class="add-indiv">
 			<h3>Add a Student Profile</h3>
 			
-			<?php if(isset($_POST['add'])) {
-				if($_POST['add'] == 'success') { ?>
+			<?php if(isset($_POST['add'])) : ?>
+				<?php if($_POST['add'] == 'success') : ?>
 					<span class="success-msg">Profile added successfully.</span>
-				<?php }
-				elseif($_POST['add'] == 'id') { ?>
+				<?php endif; ?>
+				<?php elseif($_POST['add'] == 'id') { ?>
 					<span class="error-msg">The ID number has already been taken.</span>
-				<?php }
-				else { ?>
+				<?php endif; ?>
+				<?php else : ?>
 					<span class="error-msg">Adding failed. Please try again.</span>
-				<?php }
-			} ?>
+				<?php endif; ?>
+			<?php endif; ?>
 
 			<form action="add-profiles.php" method="post" id="add-profile-indiv">
 				<h4>Personal Information</h4>
