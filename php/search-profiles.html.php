@@ -21,7 +21,7 @@
 				<button type="submit" form="filter" name="apply-filter" class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-filter"></span> Apply Filter </button>
 				<div>
 					<button class="btn btn-primary" id="clear-button"><span class="glyphicon glyphicon-repeat"></span> Reset Filter </button>
-					<button class="btn btn-primary" id="delete-button"><span class="glyphicon glyphicon-trash"></span> Delete All </button>
+					<button class="btn btn-primary" id="delete-link"><span class="glyphicon glyphicon-trash"></span> Delete All </button>
 				</div>
 			</div>
 
@@ -665,26 +665,45 @@
 								<th>Risks</th>
 							</thead>
 							<tbody>
-								<tr>
-									<td><input type="submit" class="btn" value="132408" form="link-table"/></td>
-									<td>Loremia, Aemielvin</td>
-									<td>3</td>
-									<td>BS CS</td>
-									<td>Male</td>
-									<td>19</td>
-									<td>5</td>
-								</tr>
-								<tr>
-									<td><input type="submit" class="btn" value="132652" form="link-table"/></td>
-									<td>Martinez, Zachary Ivan</td>
-									<td>3</td>
-									<td>BS CS/BS DGDD</td>
-									<td>Male</td>
-									<td>19</td>
-									<td>6</td>
-								</tr>
+								<?php if(isset($filterResult)) : ?>
+									<?php while($row = $filterResult->fetch()) : ?>
+										<tr>
+											<td><input type="submit" class="btn" value=<?php echo $row['id']; ?> form="link-table"/></td>
+											<td><?php echo $row['surname'];
+														if($row['surname'] != '') {echo ', ';}
+														echo $row['firstname'];
+														if($row['firstname'] != '') {echo ' ';}
+														echo $row['mi'];
+														if($row['mi'] != '') {echo '.';} ?></td>
+											<td><?php echo $row['yr']; ?></td>
+											<td><?php echo $row['course']; ?></td>
+											<td><?php if($row['gender'] == 1)  {echo 'Male';}
+														elseif($row['gender'] == 2) {echo 'Female';} ?></td>
+											<td><?php echo $row['age']; ?></td>
+											<td><?php echo $row['risk']; ?></td>
+										</tr>
+									<?php endwhile ?>
+								<?php endif ?>
 							</tbody>
 						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="dim-screen">
+			<div class="center-prompt panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure you want to delete all these profile?</h3>
+				</div>
+				<div class="panel-body">
+					<p>This action will be irreversible.</p>
+					<form action="?" method="post" id="delete" target="_blank">
+						<div class="inline space-around center-align">
+							<div>
+								<button id="delete-profile" type="submit" class="btn btn-danger" >Delete Profiles</button>
+								<button id="cancel-delete" type="button" class="btn btn-primary">Cancel</button>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

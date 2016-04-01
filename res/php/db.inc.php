@@ -36,7 +36,7 @@
 		} catch(PDOException $e) {
 			return '';
 		}
-		if($s->fetch()['count']>0) {
+		if($s->fetch()['count'] > 0) {
 			return 'id';
 		}
 
@@ -118,13 +118,12 @@
 		return $num;
 	}
 
-	function structDelim($conditions, $delim) {
+	function structDelim($conditions, $delim, $att = '') {
 		if(count($conditions) > 0) {
-			$return = $conditions[0];
-			for($i = 1; count($conditions) > $i; $i++) {
-				$return .= $delim.$conditions[$i];
-			}
-			return $return;
+			if($att == '') {
+				return implode($delim, $conditions);
+			} else
+				return $att.' = '.implode($delim.$att.' = ', $conditions);
 		}
 		return 'NULL';
 	}
@@ -132,8 +131,7 @@
 	function searchProfiles($conditions) {
 		global $pdo;
 		try {
-			//... SQL STATEMENTS
-			$sql = "select * from student";
+			$sql = "select id, ifnull(nullif(surname, 'null'), '') surname, ifnull(nullif(firstname, 'null'), '') firstname, ifnull(nullif(mi, 'null'), '') mi, ifnull(nullif(yr, -1), '') yr, ifnull(nullif(course, 'null'), '') course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
 			if(count($conditions) > 0) {
 				$sql .= " where";
 				$checkSet = array('id', 'firstname', 'surname', 'mi', 'course');
@@ -151,291 +149,49 @@
 							'alcoholUse', 'drugUse', 
 							'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicideActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvent', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
 				$condition = array();
-				$index = 0;
 				for($i = 0; count($checkSet) > $i; $i++) {
 					if(isset($conditions[$checkSet[$i]])) {
-						$condition[$index++] = $checkSet[$i].' = :'.$checkSet[$i];
+						$condition[] = $checkSet[$i].' = :'.$checkSet[$i];
 					}
 				}
 				for($i = 0; count($checkMinMax) > $i; $i++) {
+					$att = substr($checkMinMax[$i], 0, 	strlen($checkMinMax[$i]) - 3);
 					if(isset($conditions[$checkMinMax[$i]])) {
-						$condition[$index++] = substr($checkMinMax[$i], -3).' >= :'.$checkMinMax[$i];
+						$condition[] = $att.' >= :'.$checkMinMax[$i];
 					}
-					$i++;
 					if(isset($conditions[$checkMinMax[$i++]])) {
-						$condition[$index++] = substr($checkMinMax[$i], -3).' <= :'.$checkMinMax[$i];
+						$condition[] = $att.' <= :'.$checkMinMax[$i];
 					}
 				}
 				for($i = 0; count($checkArray) > $i; $i++) {
 					if(isset($conditions[$checkArray[$i]])) {
-						$condition[$index++] = $conditions[$checkArray[$i]];
+						$condition[] = $conditions[$checkArray[$i]];
 					}
 				}
-
-				/*
-				if(isset($conditions['id'])) {
-					$condition[$index++] = 'id = :id';
-				}
-				if(isset($conditions['riskMin'])) {
-					$condition[$index++] = 'risk >= :riskMin';
-				}
-				if(isset($conditions['riskMax'])) {
-					$condition[$index++] = 'risk <= :riskMax';
-				}
-				if(isset($conditions['firstname'])) {
-					$condition[$index++] = 'firstname = :firstname';
-				}
-				if(isset($condtions['surname'])) {
-					$condition[$index++] = 'surname = :surname';
-				}
-				if(isset($conditions['mi'])) {
-					$condition[$index++] = 'mi = :mi';
-				}
-				if(isset($conditions['yrMin'])) {
-					$condition[$index++] = 'yr >= :yrMin';
-				}
-				if(isset($conditions['yrMax'])) {
-					$condition[$index++] = 'yr <= :yrMax';
-				}
-				if(isset($conditions['course'])) {
-					$condition[$index++] = 'course = :course';
-				}
-				if(isset($conditions['gender'])) {
-
-				}
-				if(isset($conditions['ageMin'])) { 
-					$condition[$index++] = 'age >= :ageMin';
-				}
-				if(isset($conditions['ageMax'])) {
-					$condition[$index++] = 'age <= :ageMax';
-				}
-				if(isset($conditions['scholar'])) {
-
-				}
-				if(isset($conditions['dormer'])) {
-
-				}
-				if(isset($conditions['currentStatus'])) {
-
-				}
-				if(isset($conditions['loawRecordMin'])) {
-					$condition[$index++] = 'records_of_loa_w >= :loawRecordMin';
-				}
-				if(isset($conditions['loawRecordMax'])) {
-					$condition[$index++] = 'records_of_loa_w <= :loawRecordMax';
-				}
-				if(isset($conditions['y1s1Min'])) {
-					$condition[$index++] = 'qpi_y1_s1 >= :y1s1Min';
-				}
-				if(isset($conditions['y1s1Max'])) {
-					$condition[$index++] = 'qpi_y1_s1 <= :y1s1Max';
-				}
-				if(isset($conditions['y1s2Min'])) {
-					$condition[$index++] = 'qpi_y1_s2 >= :y1s2Min';
-				}
-				if(isset($conditions['y1s2Max'])) {
-					$condition[$index++] = 'qpi_y1_s2 <= :y1s2Max';
-				}
-				if(isset($conditions['y2s0Min'])) {
-					$condition[$index++] = 'qpi_y2_s0 >= :y2s0Min';
-				}
-				if(isset($conditions['y2s0Max'])) {
-					$condition[$index++] = 'qpi_y2_s0 <= :y2s0Max';
-				}
-				if(isset($conditions['y2s1Min'])) {
-					$condition[$index++] = 'qpi_y2_s1 >= :y2s1Min';
-				}
-				if(isset($conditions['y2s1Max'])) {
-					$condition[$index++] = 'qpi_y2_s1 <= :y2s1Max';
-				}
-				if(isset($conditions['y2s2Min'])) {
-					$condition[$index++] = 'qpi_y2_s2 >= :y2s2Min';
-				}
-				if(isset($conditions['y2s2Max'])) {
-					$condition[$index++] = 'qpi_y2_s2 <= :y2s2Max';
-				}
-				if(isset($conditions['y3s0Min'])) {
-					$condition[$index++] = 'qpi_y3_s0 >= :y3s0Min';
-				}
-				if(isset($conditions['y3s0Max'])) {
-					$condition[$index++] = 'qpi_y3_s0 <= :y3s0Max';
-				}
-				if(isset($conditions['y3s1Min'])) {
-					$condition[$index++] = 'qpi_y3_s1 >= :y3s1Min';
-				}
-				if(isset($conditions['y3s1Max'])) {
-					$condition[$index++] = 'qpi_y3_s1 <= :y3s1Max';
-				}
-				if(isset($conditions['y3s2Min'])) {
-					$condition[$index++] = 'qpi_y3_s2 >= :y3s2Min';
-				}
-				if(isset($conditions['y3s2Max'])) {
-					$condition[$index++] = 'qpi_y3_s2 <= :y3s2Max';
-				}
-				if(isset($conditions['y4s0Min'])) {
-					$condition[$index++] = 'qpi_y4_s0 >= :y4s0Min';
-				}
-				if(isset($conditions['y4s0Max'])) {
-					$condition[$index++] = 'qpi_y4_s0 <= :y4s0Max';
-				}
-				if(isset($conditions['y4s1Min'])) {
-					$condition[$index++] = 'qpi_y4_s1 >= :y4s1Min';
-				}
-				if(isset($conditions['y4s1Max'])) {
-					$condition[$index++] = 'qpi_y4_s1 <= :y4s1Max';
-				}
-				if(isset($conditions['y4s2Min'])) {
-					$condition[$index++] = 'qpi_y4_s2 >= :y4s2Min';
-				}
-				if(isset($conditions['y4s2Max'])) {
-					$condition[$index++] = 'qpi_y4_s2 <= :y4s2Max';
-				}
-				if(isset($conditions['y5s0Min'])) {
-					$condition[$index++] = 'qpi_y5_s0 >= :y5s0Min';
-				}
-				if(isset($conditions['y5s0Max'])) {
-					$condition[$index++] = 'qpi_y5_s0 <= :y5s0Max';
-				}
-				if(isset($conditions['y5s1Min'])) {
-					$condition[$index++] = 'qpi_y5_s1 >= :y5s1Min';
-				}
-				if(isset($conditions['y5s1Max'])) {
-					$condition[$index++] = 'qpi_y5_s1 <= :y5s1Max';
-				}
-				if(isset($conditions['y5s2Min'])) {
-					$condition[$index++] = 'qpi_y5_s2 >= :y5s2Min';
-				}
-				if(isset($conditions['y5s2Max'])) {
-					$condition[$index++] = 'qpi_y5_s2 <= :y5s2Max';
-				}
-				if(isset($conditions['lvlDepression'])) {
-
-				}
-				if(isset($conditions['lvlAnxiety'])) {
-
-				}
-				if(isset($conditions['suicideBehavior'])) {
-
-				}
-				if(isset($conditions['suicideThoughts'])) {
-
-				}
-				if(isset($conditions['hypochondriasis'])) {
-
-				}
-				if(isset($conditions['depression'])) {
-
-				}
-				if(isset($conditions['denial'])) {
-
-				}
-				if(isset($conditions['interProb'])) {
-
-				}
-				if(isset($conditions['alienation'])) {
-
-				}
-				if(isset($conditions['perseIdeas'])) {
-
-				}
-				if(isset($conditions['anxiety'])) {
-
-				}
-				if(isset($conditions['thinkDiso'])) {
-
-				}
-				if(isset($conditions['impExp'])) {
-
-				}
-				if(isset($conditions['socInt'])) {
-
-				}
-				if(isset($conditions['selfDep'])) {
-
-				}
-				if(isset($conditions['deviation'])) {
-
-				}
-				if(isset($conditions['mentalDisorder'])) {
-
-				}
-				if(isset($conditions['alcoholUse'])) {
-
-				}
-				if(isset($conditions['drugUse'])) {
-
-				}
-				if(isset($conditions['hopelessness'])) {
-
-				}
-				if(isset($conditions['traumaAbuse'])) {
-
-				}
-				if(isset($conditions['physicalIllness'])) {
-
-				}
-				if(isset($conditions['pastSuicidalActs'])) {
-
-				}
-				if(isset($conditions['familyHistorySuicide'])) {
-
-				}
-				if(isset($conditions['familyHistoryMental'])) {
-
-				}
-				if(isset($conditions['stressfulLifeEvent'])) {
-
-				}
-				if(isset($conditions['relationalSocialLoss'])) {
-
-				}
-				if(isset($conditions['accessLethalMeans'])) {
-
-				}
-				if(isset($conditions['disciplinaryCases'])) {
-
-				}
-				if(isset($conditions['sexualOrientation'])) {
-
-				}
-				if(isset($conditions['familyLivingSituation'])) {
-
-				}
-				if(isset($conditions['atmosphereAtHome'])) {
-
-				}
-				if(isset($conditions['parentsMaritalStatus'])) {
-
-				}
-				if(isset($conditions['relFather'])) {
-
-				}
-				if(isset($conditions['relMother'])) {
-
-				}
-				if(isset($conditions['spiritualSubscale'])) {
-
-				}
-				if(isset($conditions['godSubscale'])) {
-
-				}
-				if(isset($conditions['problemSolving'])) {
-
-				}
-				if(isset($conditions['seekingSocialSupport'])) {
-
-				}
-				if(isset($conditions['avoidance'])) {
-
-				}
-				*/
-				$sql .= " ".structDelim($condition, " and ");
-				echo $sql;
+				$sql .= " ".structDelim($condition, ' and ');
 			}
+			$sql .= ';';
+			//echo $sql;
 			
 			$s = $pdo->prepare($sql);
-			//... BIND VALUES
-			//$s->execute();
+			if(count($conditions) > 0) {
+				foreach($checkSet as $check) {
+					if(isset($conditions[$check])) {
+						echo ':'.$check.'  '.$conditions[$check];
+						$s->bindValue(':'.$check, $conditions[$check]);
+					}
+				}
+				foreach($checkMinMax as $minMax) {
+					if(isset($conditions[$minMax])) {
+						$s->bindValue(':'.$minMax, $conditions[$minMax]);
+					}
+				}
+			}
+			$s->execute();
+			return $s;
+			while($row = $s->fetch()) {
+				print_r($row);
+			}
 		} catch(PDOException $e) {
 			return '';
 		}
