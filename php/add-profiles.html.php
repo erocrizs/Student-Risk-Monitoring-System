@@ -34,10 +34,8 @@
 				<?php if(isset($_POST['upload'])) : ?>
 					<?php if($_POST['upload'] == 'success') : ?>
 						<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
-					<?php endif; ?>
 					<?php elseif($_POST['upload'] == 'type') : ?>
 						<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
-					<?php endif; ?>
 					<?php else : ?>
 						<span class="error-msg">Upload failed. Please try again.</span>
 					<?php endif; ?>
@@ -54,10 +52,8 @@
 			<?php if(isset($_POST['add'])) : ?>
 				<?php if($_POST['add'] == 'success') : ?>
 					<span class="success-msg">Profile added successfully.</span>
-				<?php endif; ?>
-				<?php elseif($_POST['add'] == 'id') { ?>
+				<?php elseif($_POST['add'] == 'id') : ?>
 					<span class="error-msg">The ID number has already been taken.</span>
-				<?php endif; ?>
 				<?php else : ?>
 					<span class="error-msg">Adding failed. Please try again.</span>
 				<?php endif; ?>

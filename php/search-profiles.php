@@ -12,7 +12,7 @@
 	connect('strims', 'root', 'Martinez');
 
 
-	
+	$filterResult;
 	if(isset($_POST['apply-filter'])) {
 		$checkEmptyHTML = array('id', 'firstname', 'surname', 'mi', 'yr-min', 'yr-max', 'course', 'age-min', 'age-max', 'loaw-record-min', 'loaw-record-max', 
 								'y1s1-min', 'y1s1-max', 'y1s2-min', 'y1s2-max', 'y2s0-min', 'y2s0-max', 'y2s1-min', 'y2s1-max', 'y2s2-min', 'y2s2-max', 'y3s0-min', 'y3s0-max', 'y3s1-min', 'y3s1-max', 'y3s2-min', 'y3s2-max', 'y4s0-min', 'y4s0-max', 'y4s1-min', 'y4s1-max', 'y4s2-min', 'y4s2-max', 'y5s0-min', 'y5s0-max', 'y5s1-min', 'y5s1-max', 'y5s2-min', 'y5s2-max', 
@@ -65,7 +65,10 @@
 				$conditions[$checkNum[$i]] = '('.structDelim($_POST[$checkNumHTML[$i]], ' or ', $checkNum[$i]).')';
 			}
 		}
-		$filterResult = searchProfiles($conditions);
+		$filterResultTemp = searchProfiles($conditions);
+		if($filterResultTemp != '') {
+			$filterResult = $filterResultTemp;
+		}
 	}
 
 	include 'search-profiles.html.php';

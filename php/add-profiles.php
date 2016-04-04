@@ -41,8 +41,10 @@
 		}
 	}
 	else if(isset($_POST['add'])) {
-		$profileStringHTML = array('id-num', 'course', 'last-name', 'first-name', 'mi-name', 'birthday', 'mobile-number', 'email-address');
-		$profileString = array('id', 'course', 'surname', 'firstname', 'mi', 'birthday', 'mobile', 'email');
+		$profileStringHTML = array('id-num', 'course', 'last-name', 'first-name', 'mi-name', 'mobile-number', 'email-address');
+		$profileString = array('id', 'course', 'surname', 'firstname', 'mi', 'mobile', 'email');
+		$profileNullHTML = array('birthday');
+		$profileNull = array('birthday');
 		$profileNumHTML = array('yr-lvl', 'gender', 'scholar', 'dormer', 'current-status', 'loa-w-record', 
 								'y1-s1', 'y1-s2', 'y2-s0', 'y2-s1', 'y2-s2', 'y3-s0', 'y3-s1', 'y3-s2', 'y4-s0', 'y4-s1', 'y4-s2', 'y5-s0', 'y5-s1', 'y5-s2', 
 								'family-living-situation', 'atmosphere-at-home', 'parents-marital-status', 'rel-with-father', 'rel-with-mother', 
@@ -67,7 +69,10 @@
 							'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicidalActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
 		$profile = array();
 		for($i = 0; count($profileString) > $i; $i++) {
-			$profile[$profileString[$i]] = parseString($_POST[$profileStringHTML[$i]]);
+			$profile[$profileString[$i]] = $_POST[$profileStringHTML[$i]];
+		}
+		for($i = 0; count($profileNull) > $i; $i++) {
+			$profile[$profileNull[$i]] = parseString($_POST[$profileNullHTML[$i]]);
 		}
 		for($i = 0; count($profileNum) > $i; $i++) {
 			$profile[$profileNum[$i]] = parseNumber($_POST[$profileNumHTML[$i]]);

@@ -131,7 +131,7 @@
 	function searchProfiles($conditions) {
 		global $pdo;
 		try {
-			$sql = "select id, ifnull(nullif(surname, 'null'), '') surname, ifnull(nullif(firstname, 'null'), '') firstname, ifnull(nullif(mi, 'null'), '') mi, ifnull(nullif(yr, -1), '') yr, ifnull(nullif(course, 'null'), '') course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
+			$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
 			if(count($conditions) > 0) {
 				$sql .= " where";
 				$checkSet = array('id', 'firstname', 'surname', 'mi', 'course');
@@ -189,9 +189,6 @@
 			}
 			$s->execute();
 			return $s;
-			while($row = $s->fetch()) {
-				print_r($row);
-			}
 		} catch(PDOException $e) {
 			return '';
 		}
