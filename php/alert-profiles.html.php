@@ -16,11 +16,9 @@
 				<h3>Students at Risk</h3>
 				<a href='alert-profiles.php'> <button class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-refresh"></span> Refresh</button></a>
 			</div>
-			<form action="?" method="get" target="_blank">
 
-				<?php include 'profiles-result-table.html.php'; ?>
-				
-			</form>
+			<?php include 'profiles-result-table.html.php'; ?>
+
 		</div>
 	</body>
 </html>

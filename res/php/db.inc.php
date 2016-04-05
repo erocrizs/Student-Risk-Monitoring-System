@@ -7,7 +7,8 @@
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$pdo->exec('set names "ascii"');
 		} catch(PDOException $e) {
-			noConnection("Unable to connect to the database server.", $e->getMessage());
+			include 'index.php';
+			exit();
 		}
 	}
 
@@ -100,7 +101,6 @@
 			$s->bindValue(":risk", $risk);
 			$s->execute();
 		} catch(PDOException $e) {
-			echo $e->getMessage();
 			return '';
 		}
 		return 'success';

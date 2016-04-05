@@ -109,11 +109,9 @@
 				</div>
 
 				<div class="result-section">
-					<form action="?" method="get" target="_blank" id="link-table">
 						
-						<?php include 'profiles-result-table.html.php'; ?>
-
-					</form>
+					<?php include 'profiles-result-table.html.php'; ?>
+					
 				</div>
 			</div>
 		</div>
