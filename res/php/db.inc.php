@@ -193,4 +193,18 @@
 			return '';
 		}
 	}
+
+	function searchRiskProfiles() {
+		global $pdo;
+
+		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student where risk > 5";
+		
+		try {
+			$s = $pdo->prepare($sql);
+			$s->execute();
+			return $s;
+		} catch(PDOException $e) {
+			return '';
+		}
+	}
 ?>
