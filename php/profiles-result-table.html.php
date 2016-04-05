@@ -11,8 +11,8 @@
 		<th>Risks</th>
 	</thead>
 	<tbody>
-		<?php if(isset($filterResult)) : ?>
-			<?php while($row = $filterResult->fetch()) : ?>
+		<?php if(isset($searchResult)) : ?>
+			<?php while($row = $searchResult->fetch()) : ?>
 				<tr>
 					<td><input type="submit" class="btn" value=<?php echo $row['id']; ?> form="link-table"/></td>
 					<td><?php echo $row['surname'];
