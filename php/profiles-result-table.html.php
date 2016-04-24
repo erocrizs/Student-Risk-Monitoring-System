@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<form action="profiles/student-profile.php" method="post" target="_blank" id="link-table">
+<form action="student-profile.php" method="get" target="_blank" id="link-table">
 	<table class="table table-hover">
 		<thead>
 			<th>ID</th>
@@ -15,7 +15,7 @@
 			<?php if(isset($searchResult)) : ?>
 				<?php while($row = $searchResult->fetch()) : ?>
 					<tr>
-						<td><input type="submit" name='id' class="btn" value=<?php echo $row['id']; ?> form="link-table"/></td>
+						<td><input type="submit" name='id' class="btn" value=<?php echo $row['id']; ?>></td>
 						<td><?php echo $row['surname'];
 								if($row['surname'] != '') : echo ', '; endif;
 								echo $row['firstname'];

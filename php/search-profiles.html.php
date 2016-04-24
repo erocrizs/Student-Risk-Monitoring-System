@@ -109,7 +109,7 @@
 				</div>
 
 				<div class="result-section">
-						
+
 					<?php include 'profiles-result-table.html.php'; ?>
 					
 				</div>
