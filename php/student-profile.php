@@ -9,7 +9,8 @@
 	magicQuotes();
 
 	connect('strims', 'root', 'Martinez');
+
+	$student = searchProfiles(array('id' => $_GET['id']))->fetch();
 	
 	include 'student-profile.html.php';
-
 ?>

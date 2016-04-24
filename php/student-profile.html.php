@@ -24,7 +24,7 @@
 				<span class="success-msg">Profile edited successfully.</span>
 			<!---->
 			<hr />
-			<form action="?" method="post" id="add-profile-indiv">
+			<form action="student-profile.php" method="get" id="add-profile-indiv">
 				<h4>Personal Information</h4>
 				<div class="padded-side">
 
@@ -113,12 +113,16 @@
 				</div>
 				<br />
 
-				<br />
+			<br />
+			<!-- <form action="student-profile.php" method="get" id="submit-profile-indiv"> -->
+				<!-- <input type="hidden" name='id' value=<?php echo $student['id'] ?> id="id-profile"> -->
 				<div class="inline space-around">
 					<input type="submit" class="btn btn-primary" value="update" id="add-profile" />
 				</div>
-				<br />
+			<!-- </form> -->
+			<br />
 			</form>
+			
 		</div>
 		
 		<?php include 'student-profile-delete.html.php'; ?>

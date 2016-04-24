@@ -3,7 +3,7 @@
 <div class="inline space-between entry-row">
 	<div class="inline center-align three-col">
 		<label for="id-num">ID Number: </label>
-		<input type="text" name="id-num" id="id-num" class="form-control" required="required"/>
+		<input type="text" name="id" id="id-num" class="form-control" required="required"/>
 	</div>
 	<div class="inline center-align three-col">
 		<label for="year-lvl">Year Level: </label>
