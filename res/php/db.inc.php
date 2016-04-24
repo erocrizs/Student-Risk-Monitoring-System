@@ -170,14 +170,12 @@
 			$sql .= " ".structDelim($condition, ' and ');
 		}
 		$sql .= ';';
-		//echo $sql;
 	
 		try {
 			$s = $pdo->prepare($sql);
 			if(count($conditions) > 0) {
 				foreach($checkSet as $check) {
 					if(isset($conditions[$check])) {
-						echo ':'.$check.'  '.$conditions[$check];
 						$s->bindValue(':'.$check, $conditions[$check]);
 					}
 				}
