@@ -100,7 +100,7 @@ body.full {
 	flex: 0 0 45%;
 }
 
-.add-indiv #add-profile {
+.add-indiv #add-profile, .add-indiv #add-report {
 	width: 200px;
 }
 
