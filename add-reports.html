@@ -4,13 +4,148 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ateneo Strims</title>
 		<link href="res/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="res/css/styles.css" rel="stylesheet" />
+		<link href="res/css/content.css" rel="stylesheet" />
 		
 		<script src="res/js/jquery-2.1.4.min.js"></script>
 		<script src="res/js/bootstrap.min.js"></script>
 	</head>
 	
-	<body>
-		<h1>Add Reports</h1>
+	<body class="container">
+
+		<!-- Add By File Section -->
+		<div class="add-by-file">
+			<h3>Upload a Spreadsheet (.xlsx) File</h3>
+			<p>
+				You can add multiple reports at once by uploading a spreadsheet (.xlsx) file. Choose the spreadsheet file
+				that contains the profile details you want to add and then upload.
+			</p>
+
+			<div class="inline space-between">
+				<form action="?" method="post" >
+					<div class="inline">
+						<input type="file" class="btn btn-primary" name="xls-file" id="choose-file" />
+						<button type="submit" class="btn btn-primary" id="upload-file" /><span class="glyphicon glyphicon-upload"></span> Upload File</button>
+					</div>
+				</form>
+				<a href="res/others/Add Students Template.xlsx" download><button class="btn btn-primary"><span class="glyphicon glyphicon-download"></span> Download Template</button></a>
+			</div>
+
+			<div class="status">
+
+				<!-- Statuses --
+					<span class="error-msg">Upload failed. Please try again.</span>
+
+					<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
+					
+					<span class="success-msg">Uploaded file successfully. N new risk reports added to the database.</span>
+				<!---->
+
+			</div>
+		</div>
+
+		<hr />
+
+		<!-- Add Individually Section -->
+		<div class="add-indiv">
+			<h3>Add a Risk Report</h3>
+			
+			<!-- Statuses --
+				<span class="error-msg">Adding failed. Please try again.</span>
+				
+				<span class="success-msg">Risk report added successfully.</span>
+			<!---->
+
+			<form action="?" method="post" id="add-report-indiv">
+				<div class="padded-side">
+
+					<div class="inline space-between entry-row">
+						<div class="inline center-align three-col">
+							<label for="student-id">ID Number: </label>
+							<input type="text" name="student-id" id="student-id" class="form-control" required="required"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="date-reported">Date Reported: </label>
+							<input type="date" name="date-reported" id="date-reported" class="form-control" />
+						</div>
+						<div class="three-col">
+							<!-- filler -->
+						</div>
+					</div>
+
+					<div class="inline space-between entry-row">
+						<div class="inline center-align three-col">
+							<label for="reported-from">Reported From: </label>
+							<input type="text" name="reported-from" id="reported-from" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="receiving-office">Receiving Office: </label>
+							<input type="text" name="receiving-office" id="receiving-office" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="case-handler">Case Handler: </label>
+							<input type="text" name="case-handler" id="case-handler" class="form-control"/>
+						</div>
+					</div>
+
+					<br />
+					<label for="summary-report">Summary of Report:</label>
+					<br />
+					<textarea name="summary-report" id="summary-report" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<br />
+
+					<div class="inline space-between entry-row">
+						<div class="inline center-align three-col">
+							<label for="risk-for-violence">Risk for Violence: </label>
+							<input type="text" name="risk-for-violence" id="risk-for-violence" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="ideation">Ideation: </label>
+							<input type="text" name="ideation" id="ideation" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="actual-attempts">Actual Attempts: </label>
+							<input type="text" name="actual-attempts" id="actual-attempts" class="form-control"/>
+						</div>
+					</div>
+
+					<div class="inline space-between entry-row">
+						<div class="inline center-align three-col">
+							<label for="diagnosis">Diagnosis: </label>
+							<input type="text" name="diagnosis" id="diagnosis" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="psychiatrist">Psychiatrist: </label>
+							<input type="text" name="psychiatrist" id="psychiatrist" class="form-control"/>
+						</div>
+						<div class="inline center-align three-col">
+							<label for="medicine">Medicine: </label>
+							<input type="text" name="medicine" id="medicine" class="form-control"/>
+						</div>
+					</div>
+
+					<br />
+					<label for="course-of-action">Course of Action:</label>
+					<br />
+					<textarea name="course-of-action" id="course-of-action" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<br />
+					<label for="updates-case-handler">Updates by Case Handlers:</label>
+					<br />
+					<textarea name="updates-case-handler" id="updates-case-handler" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<br />
+					<label for="updates-ohs">Updates from OHS:</label>
+					<br />
+					<textarea name="updates-ohs" id="updates-ohs" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<br />
+
+				</div>
+				<br />
+
+				<br />
+				<div class="inline space-around">
+					<input type="submit" class="btn btn-primary" value="Add Report" id="add-report" />
+				</div>
+				<br />
+			</form>
+		</div>
 	</body>
 </html>
