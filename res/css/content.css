@@ -234,3 +234,87 @@ body.full {
 	padding: 5px 10px 5px 10px;
 	margin: 10px 10px 10px 10px;
 }
+
+/* Search Report */
+
+#search-report {
+	height: inherit;
+}
+
+#search-report .control-bar {
+	padding: 10px;
+	border-bottom: 2px solid #aaa;
+}
+
+#search-report .main {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	height: calc(100% - 56px);
+}
+
+#search-report .search-section {
+	flex: 0 0 300px;
+
+}
+
+#search-report .result-section {
+	flex: 1 0 auto;
+	overflow-x: scroll;
+}
+
+#search-report .result-section, #search-report .search-section {
+	overflow-y: scroll;
+}
+
+#search-report .result-section .table {
+	border: 1px solid #244A91;
+}
+
+#search-report .result-section .table thead {
+	background-color: #244A91;
+	color: #FFF;
+}
+
+#search-report .result-section .table td, #search-report .result-section .table thead th {
+	border: 0px;
+	border-top: 1px solid #577dc4;
+}
+
+#search-report .result-section .table .btn {
+	width: 100%;
+}
+
+#search-report .search-section li {
+	list-style-type: none;
+}
+
+#search-report .search-section ul, #search-report .search-section .indent {
+	padding-left: 10px;
+}
+
+#search-report .search-section p {
+	font-size: 1.15em;
+	margin-bottom: 0px;
+}
+
+#search-report .search-section .form-control {
+	width: 200px;
+}
+
+#search-report .search-section .collapse-trigger {
+	cursor: pointer;
+	cursor: hand;
+
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+
+#search-report .search-section .collapsee {
+	margin-bottom: 5px;
+}
