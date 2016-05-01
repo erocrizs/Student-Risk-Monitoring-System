@@ -318,3 +318,7 @@ body.full {
 #search-report .search-section .collapsee {
 	margin-bottom: 5px;
 }
+
+textarea {
+	resize: vertical;
+}
