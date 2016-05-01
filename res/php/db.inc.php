@@ -204,4 +204,81 @@
 			return '';
 		}
 	}
+
+	function searchReports($conditions) {
+		global $pdo;
+		$sql = 'select report.id as id, report.date as date, report.reported_from as office, report.receiving_office as office from report left join studentreport on report.id = studentreport.student_id left join student on studentreport.student_id = student.id ';
+		if(count($conditions) > 0) {
+			$sql .= ' where ';
+			$studentCheckSet = array('id');
+			$reportCheckSet = array('id', 'reportedFrom', 
+								'receivingOffice', 'caseHandler', 'summary', 
+								'riskViolence', 'ideation', 'attempts', 'diagnosis', 
+								'psychiatrist', 'medicine', 'action', 
+								'updatesCaseHandler', 'updatesOHS', 'visitsPsychCouncelor');
+			$studentCheckMinMax = array();
+			$reportCheckMinMax = array('dateReportedMin', 'dateReportedMax');
+			
+			$condition = array();
+			for($i = 0; count($studentCheckSet) > $i; $i++) {
+				if(isset($conditions[$studentCheckSet[$i]])) {
+					$condition[] = 'student.'.$studentCheckSet[$i].' = :'.$studentCheckSet[$i];
+				}
+			}
+			for($i = 0; count($studentCheckMinMax) > $i; $i++) {
+				$att = substr($studentCheckMinMax[$i], 0, 	strlen($studentCheckMinMax[$i]) - 3);
+				if(isset($conditions[$studentCheckMinMax[$i]])) {
+					$condition[] = 'student.'.$att.' >= :'.$studentCheckMinMax[$i];
+				}
+				if(isset($conditions[$checkMinMax[$i++]])) {
+					$condition[] = 'student.'.$att.' <= :'.$studentCheckMinMax[$i];
+				}
+			}
+			for($i = 0; count($reportCheckSet) > $i; $i++) {
+				if(isset($conditions[$reportCheckSet[$i]])) {
+					$condition[] = 'report.'.$reportCheckSet[$i].' = :'.$reportCheckSet[$i];
+				}
+			}
+			for($i = 0; count($reportCheckMinMax) > $i; $i++) {
+				$att = substr($reportCheckMinMax[$i], 0, 	strlen($reportCheckMinMax[$i]) - 3);
+				if(isset($conditions[$reportCheckMinMax[$i]])) {
+					$condition[] = 'report.'.$att.' >= :'.$reportCheckMinMax[$i];
+				}
+				if(isset($conditions[$reportCheckMinMax[$i++]])) {
+					$condition[] = 'report.'.$att.' <= :'.$reportCheckMinMax[$i];
+				}
+			}
+			$sql .= structDelim($condition, ' and ');
+		}
+
+		try {
+			$s = $pdo->prepare($sql);
+			if(count($conditions) > 0) {
+				foreach($studentCheckSet as $check) {
+					if(isset($conditions[$check])) {
+						$s->bindValue(':'.$check, $conditions[$check]);
+					}
+				}
+				foreach($studentCheckMinMax as $minMax) {
+					if(isset($conditions[$minMax])) {
+						$s->bindValue(':'.$minMax, $conditions[$minMax]);
+					}
+				}
+				foreach($reportCheckSet as $check) {
+					if(isset($conditions[$check])) {
+						$s->bindValue(':'.$check, $conditions[$check]);
+					}
+				}
+				foreach($reportCheckMinMax as $minMax) {
+					if(isset($conditions[$minMax])) {
+						$s->bindValue(':'.$minMax, $conditions[$minMax]);
+					}
+				}
+			}
+			$s->execute();
+			return $s;
+		} catch(PDOException $e) {
+			return '';
+		}
+	}
 ?>
