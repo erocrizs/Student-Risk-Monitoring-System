@@ -4,13 +4,76 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ateneo Strims</title>
 		<link href="res/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="res/css/styles.css" rel="stylesheet" />
+		<link href="res/css/content.css" rel="stylesheet" />
 		
 		<script src="res/js/jquery-2.1.4.min.js"></script>
 		<script src="res/js/bootstrap.min.js"></script>
 	</head>
 	
-	<body>
-		<h1>Manage Accounts</h1>
+	<body class="container">
+		<div class="non-admin-accounts">
+			<h3>Manage Non-Admin Accounts</h3>
+
+			<div class="padded-side">
+
+				<div class="account-box panel">
+					<form action="?" method="post" id="acc-set-1">
+
+						<div class="inline space-between vertical-margin">
+							<div class="inline center-align two-col">
+								<label for="account-name" class="flex-40">Account Name: </label>
+								<input type="text" name="account-name" id="account-name" value="user_account01" class="form-control flex-60" readonly/>
+							</div>
+							<div class="inline center-align two-col">
+								<label for="account-type" class="flex-40">Account Type: </label>
+								<select name="account-type" id="account-type" class="form-control flex-60">
+									<option value="1" selected>LS-OAA</option>
+									<option value="2">RH</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="inline space-between vertical-margin">
+							<div class="inline center-align two-col">
+								<label for="default-password" class="flex-40">Default Password: </label>
+								<div class="inline btn-group flex-60">
+									<input type="password" name="default-password" id="default-password" value="p@ssw0rd" class="btn form-control flex-60" />
+									<button class="btn default-pass-visible form-control flex-40" >
+										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+									</button>
+								</div>
+							</div>
+							<div class="inline center-align two-col">
+								<label for="reset-password" class="flex-40">Reset Password? </label>
+								<div class="inline btn-group radio-btn-group flex-60" id="account-type" data-toggle="buttons" required>
+									<label class="btn btn-default">
+										<input type="radio" id="do-reset-password" name="reset-password" value="1" /> Yes
+									</label> 
+									<label class="btn btn-default active">
+										<input type="radio" id="radio-student" name="reset-password" value="0" checked="checked"/> No
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<hr />
+
+						<div class="decision-buttons inline space-between vertical-margin">
+							<div class="inline center-align two-col btn-group">
+								<button type="reset" class="btn btn-primary form-control">Delete Changes</button>
+								<button type="submit" class="btn btn-primary form-control">Save Changes</button>
+							</div>
+							<form action="?" method="post" id="acc-delete-1">
+								<button type="submit" class="btn-danger form-control">Delete Account</button>
+							</form>
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
 	</body>
 </html>
