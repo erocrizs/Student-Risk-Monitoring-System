@@ -8,6 +8,7 @@
 		
 		<script src="res/js/jquery-2.1.4.min.js"></script>
 		<script src="res/js/bootstrap.min.js"></script>
+		<script src="res/js/manage-accounts.js"></script>
 	</head>
 	
 	<body class="container">
@@ -22,7 +23,7 @@
 						<div class="inline space-between vertical-margin">
 							<div class="inline center-align two-col">
 								<label for="account-name" class="flex-40">Account Name: </label>
-								<input type="text" name="account-name" id="account-name" value="user_account01" class="form-control flex-60" readonly/>
+								<input type="text" name="account-name" id="account-name" value="user_account01" class="form-control flex-60"/>
 							</div>
 							<div class="inline center-align two-col">
 								<label for="account-type" class="flex-40">Account Type: </label>
@@ -35,10 +36,10 @@
 
 						<div class="inline space-between vertical-margin">
 							<div class="inline center-align two-col">
-								<label for="default-password" class="flex-40">Default Password: </label>
+								<label for="default-password" class="flex-40">Replacement Password: </label>
 								<div class="inline btn-group flex-60">
-									<input type="password" name="default-password" id="default-password" value="p@ssw0rd" class="btn form-control flex-60" />
-									<button class="btn default-pass-visible form-control flex-40" >
+									<input type="password" name="default-password" id="default-password" class="btn form-control flex-60" />
+									<button type="button" class="btn btn-default default-pass-visible form-control flex-40" id='def-pass-visible'>
 										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 									</button>
 								</div>
@@ -46,11 +47,11 @@
 							<div class="inline center-align two-col">
 								<label for="reset-password" class="flex-40">Reset Password? </label>
 								<div class="inline btn-group radio-btn-group flex-60" id="account-type" data-toggle="buttons" required>
-									<label class="btn btn-default">
+									<label class="btn btn-default" id="do-reset-password-label">
 										<input type="radio" id="do-reset-password" name="reset-password" value="1" /> Yes
 									</label> 
-									<label class="btn btn-default active">
-										<input type="radio" id="radio-student" name="reset-password" value="0" checked="checked"/> No
+									<label class="btn btn-default active" id="dont-reset-password-label">
+										<input type="radio" id="dont-reset-password" name="reset-password" value="0" checked="true"/> No
 									</label>
 								</div>
 							</div>
@@ -60,11 +61,11 @@
 
 						<div class="decision-buttons inline space-between vertical-margin">
 							<div class="inline center-align two-col btn-group">
-								<button type="reset" class="btn btn-primary form-control">Delete Changes</button>
+								<button type="button" id="reset" class="btn btn-primary form-control">Delete Changes</button>
 								<button type="submit" class="btn btn-primary form-control">Save Changes</button>
 							</div>
-							<form action="?" method="post" id="acc-delete-1">
-								<button type="submit" class="btn-danger form-control">Delete Account</button>
+							<form action="?" method="post" id="acc-delete-1" class="delete-account">
+								<button type="button" class="btn-danger form-control">Delete Account</button>
 							</form>
 						</div>
 

@@ -1,0 +1,77 @@
+$(document).ready( function() {
+
+	var characterChoices = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
+	function genPass() {
+		var ret = "";
+		var length = 6 + ( Math.random() * 5 );
+
+		for(var i = 0; i < length; i++)
+			ret += characterChoices.charAt( Math.floor( Math.random() * characterChoices.length ) );
+
+		return ret;
+	}
+
+	var accounts = [];
+
+	var accountBoxes = $('.account-box');
+	for(var i=0; i<accountBoxes.length; i++)
+	{
+		var currBox = $(accountBoxes[i]);
+
+		var formId = currBox.find('form').attr('id');
+		var accountId = formId.split('-')[2];
+
+		var accountNameInput = currBox.find('#account-name');
+		var accountTypeInput = currBox.find('#account-type');
+		var defaultPasswordInput = currBox.find('#default-password');
+		var defPassVisibilityToggle = currBox.find('#def-pass-visible');
+		var doResetPasswordToggle = currBox.find('#do-reset-password');
+		var dontResetPasswordToggle = currBox.find('#dont-reset-password');
+		var resetChangesButton = currBox.find("#reset");
+
+		var deleteForm = currBox.find(".delete-account");
+
+		var currAccount = {
+			accountId: +accountId,
+			accountName: accountNameInput.val(),
+			accountType: accountTypeInput.val()
+		};
+
+		accounts.push(currAccount);
+
+		defPassVisibilityToggle.click( function() {
+			if(defPassVisibilityToggle.hasClass("active"))
+			{
+				defPassVisibilityToggle.removeClass("active");
+				defaultPasswordInput.attr("type", "password");
+				console.log("A");
+			}
+			else
+			{
+				defPassVisibilityToggle.addClass("active");
+				defaultPasswordInput.attr("type", "text");
+				console.log("B");
+			}
+		} )
+
+		defaultPasswordInput.val( genPass() );
+		defaultPasswordInput.click( function() {
+			defaultPasswordInput.val( genPass() );
+			console.log( defaultPasswordInput.val() );
+		} );
+
+		resetChangesButton.click( function() {
+			accountNameInput.val( currAccount.accountName );
+			accountTypeInput.val( currAccount.accountType );
+			currBox.find('#do-reset-password-label').removeClass("active");
+			currBox.find('#dont-reset-password-label').addClass("active");
+			console.log(currBox.find('#dont-reset-password-label'));
+			doResetPasswordToggle[0].checked = false;
+			dontResetPasswordToggle[0].checked = true;
+		} );
+	}
+
+	for(var i=0; i<accounts.length; i++)
+		console.log(accounts[i]);
+
+});
