@@ -24,6 +24,7 @@ $(document).ready( function() {
 		var accountNameInput = currBox.find('#account-name');
 		var accountTypeInput = currBox.find('#account-type');
 		var defaultPasswordInput = currBox.find('#default-password');
+		var defPassRandom = currBox.find('#def-pass-random')
 		var defPassVisibilityToggle = currBox.find('#def-pass-visible');
 		var doResetPasswordToggle = currBox.find('#do-reset-password');
 		var dontResetPasswordToggle = currBox.find('#dont-reset-password');
@@ -55,9 +56,8 @@ $(document).ready( function() {
 		} )
 
 		defaultPasswordInput.val( genPass() );
-		defaultPasswordInput.click( function() {
+		defPassRandom.click( function() {
 			defaultPasswordInput.val( genPass() );
-			console.log( defaultPasswordInput.val() );
 		} );
 
 		resetChangesButton.click( function() {
@@ -71,7 +71,5 @@ $(document).ready( function() {
 		} );
 	}
 
-	for(var i=0; i<accounts.length; i++)
-		console.log(accounts[i]);
-
+	
 });
