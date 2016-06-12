@@ -3,6 +3,7 @@ $(document).ready( function() {
 	$('.dim-screen').hide();
 	$("#cancel-delete").click(function() {
 		$(".dim-screen").fadeOut();
+		$('.deleteAccount').removeAttr('id');
 	});
 
 	var characterChoices = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
@@ -35,7 +36,7 @@ $(document).ready( function() {
 		var dontResetPasswordToggle = currBox.find('#dont-reset-password');
 		var resetChangesButton = currBox.find("#reset");
 
-		var deleteForm = currBox.find(".delete-account");
+		var deleteTrigger = currBox.find("#delete-trigger");
 
 		var currAccount = {
 			accountId: +accountId,
@@ -74,7 +75,12 @@ $(document).ready( function() {
 			doResetPasswordToggle[0].checked = false;
 			dontResetPasswordToggle[0].checked = true;
 		} );
-	}
 
+		deleteTrigger.click( function() {
+			$('.deleteAccount').attr('id', 'account-'+formId);
+			$('#to-be-deleted').html( currAccount.accountName );
+			$('.dim-screen').fadeIn();
+		});
+	}
 	
 });
