@@ -1,5 +1,10 @@
 $(document).ready( function() {
 
+	$('.dim-screen').hide();
+	$("#cancel-delete").click(function() {
+		$(".dim-screen").fadeOut();
+	});
+
 	var characterChoices = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
 	function genPass() {
 		var ret = "";
