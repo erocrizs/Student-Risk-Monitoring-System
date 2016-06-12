@@ -51,13 +51,11 @@ $(document).ready( function() {
 			{
 				defPassVisibilityToggle.removeClass("active");
 				defaultPasswordInput.attr("type", "password");
-				console.log("A");
 			}
 			else
 			{
 				defPassVisibilityToggle.addClass("active");
 				defaultPasswordInput.attr("type", "text");
-				console.log("B");
 			}
 		} )
 
