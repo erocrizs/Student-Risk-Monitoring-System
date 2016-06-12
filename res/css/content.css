@@ -44,17 +44,17 @@ textarea {
 	flex: 0 0 45%;
 }
 
+.form-control {
+	padding: 5px;
+	height: 2em;
+}
+
 .flex-40 {
 	flex: 0 0 40%;
 }
 
 .flex-60 {
 	flex: 0 0 60%;
-}
-
-.form-control {
-	padding: 5px;
-	height: 2em;
 }
 
 .padded-side {
@@ -343,12 +343,11 @@ textarea {
 }
 
 .non-admin-accounts #default-password {
-	flex: 0 0 80%;
+	flex: 0 0 70%;
 }
 
-.non-admin-accounts .default-pass-visible {
-	flex: 0 0 20%;
-	border-color: #DDDDDD;
+.non-admin-accounts #def-pass-random, .non-admin-accounts #def-pass-visible {
+	flex: 0 0 15%;
 }
 
 .non-admin-accounts .account-box hr {
