@@ -20,7 +20,7 @@
 			<div class="navbar-logout inline center-align space-between">
 
 			<?php echo getSession('account')['username'] ?> (
-				<form action="index.php" method="post">
+				<form action="." method="post">
 					<input type="submit" name="logout" id="log-out-button" class="button-as-link" value="LOG OUT" />
 				</form>
 			)
@@ -33,22 +33,22 @@
 			 	<li role="presentation" class="active"><a>Alert Profiles</a></li>
 			 	<li role="presentation"><a>Search Profiles</a></li>
 			 	<li role="presentation"><a>Search Reports</a></li>
-			 	<?php if(getSession('account')['type'] == 'admin') { ?>
+			 	<?php if(getSession('account')['type'] == 'admin') : ?>
 				 	<li role="presentation"><a>Add Profiles</a></li>
 				 	<li role="presentation"><a>Add Reports</a></li>
 				 	<li role="presentation"><a>Manage Accounts</a></li>
-			 	<?php } ?>
+			 	<?php endif; ?>
 			</ul>
 		</div>
 		<div class="container software-body">
 			<iframe src="alert-profiles.php" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="search-profiles.php" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.php" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
-			<?php if(getSession('account')['type'] == 'admin') { ?>
+			<?php if(getSession('account')['type'] == 'admin') : ?>
 				<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 				<iframe src="add-reports.php" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
 				<iframe src="manage-accounts.php" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
-			<?php } ?>
+			<?php endif; ?>
 		</div>
 	</body>
 </html>

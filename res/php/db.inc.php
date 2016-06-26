@@ -26,6 +26,95 @@
 		return $s->fetch();
 	}
 
+	function searchRiskProfiles() {
+		global $pdo;
+
+		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student where risk > 5";
+		
+		try {
+			$s = $pdo->prepare($sql);
+			$s->execute();
+			return $s;
+		} catch(PDOException $e) {
+			noConnection();
+			exit();
+		}
+	}
+
+	function structDelim($conditions, $delim, $att = '') {
+		if(count($conditions) > 0) {
+			if($att == '') {
+				return implode($delim, $conditions);
+			} else
+				return $att.' = '.implode($delim.$att.' = ', $conditions);
+		}
+		return 'NULL';
+	}
+
+	function searchProfiles($conditions) {
+		global $pdo;
+		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
+		if(count($conditions) > 0) {
+			$sql .= " where ";
+			$checkSet = array('id', 'firstname', 'surname', 'mi', 'course');
+			$checkMinMax = array('yrMin', 'yrMax', 'ageMin', 'ageMax', 'loawRecordMin', 'loawRecordMax', 
+						'y1s1Min', 'y1s1Max', 'y1s2Min', 'y1s2Max', 'y2s0Min', 'y2s0Max', 'y2s1Min', 'y2s1Max', 'y2s2Min', 'y2s2Max', 'y3s0Min', 'y3s0Max', 'y3s1Min', 'y3s1Max', 'y3s2Min', 'y3s2Max', 'y4s0Min', 'y4s0Max', 'y4s1Min', 'y4s1Max', 'y4s2Min', 'y4s2Max', 'y5s0Min', 'y5s0Max', 'y5s1Min', 'y5s1Max', 'y5s2Min', 'y5s2Max', 
+						'riskMin', 'riskMax');
+			$checkArray = array('gender', 'scholar', 'dormer', 'currentStatus', 
+						'familyLivingSituation', 'atmosphereAtHome', 'parentsMaritalStatus', 'relFather', 'relMother', 
+						'spiritualSubscale', 'godSubscale', 
+						'problemSolving', 'seekingSocialSupport', 'avoidance', 
+						'lvlDepression', 'lvlAnxiety', 
+						'suicideBehavior', 'suicidalThoughts', 
+						'hypochondriasis', 'depression', 'denial', 'interpersonalProblems', 'alienation', 'persecutoryIdeas', 'anxiety', 'thinkingDisorder', 'impulseExpression', 'socialIntroversion', 'selfDeprication', 'deviation', 
+						'mentalDisorder', 
+						'alcoholUse', 'drugUse', 
+						'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicideActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
+			$condition = array();
+			for($i = 0; count($checkSet) > $i; $i++) {
+				if(isset($conditions[$checkSet[$i]])) {
+					$condition[] = $checkSet[$i].' = :'.$checkSet[$i];
+				}
+			}
+			for($i = 0; count($checkMinMax) > $i; $i++) {
+				$att = substr($checkMinMax[$i], 0, 	strlen($checkMinMax[$i]) - 3);
+				if(isset($conditions[$checkMinMax[$i]])) {
+					$condition[] = $att.' >= :'.$checkMinMax[$i];
+				}
+				$i++;
+				if(isset($conditions[$checkMinMax[$i]])) {
+					$condition[] = $att.' <= :'.$checkMinMax[$i];
+				}
+			}
+			for($i = 0; count($checkArray) > $i; $i++) {
+				if(isset($conditions[$checkArray[$i]])) {
+					$condition[] = $conditions[$checkArray[$i]];
+				}
+			}
+			$sql .= structDelim($condition, ' and ');
+		}
+	
+		try {
+			$s = $pdo->prepare($sql);
+			if(count($conditions) > 0) {
+				foreach($checkSet as $check) {
+					if(isset($conditions[$check])) {
+						$s->bindValue(':'.$check, $conditions[$check]);
+					}
+				}
+				foreach($checkMinMax as $minMax) {
+					if(isset($conditions[$minMax])) {
+						$s->bindValue(':'.$minMax, $conditions[$minMax]);
+					}
+				}
+			}
+			$s->execute();
+			return $s;
+		} catch(PDOException $e) {
+			noConnection();
+		}
+	}
+
 	function addProfile($profile) {
 		global $pdo;
 		try {
@@ -115,93 +204,6 @@
 		if($num == '')
 			return -1;
 		return $num;
-	}
-
-	function structDelim($conditions, $delim, $att = '') {
-		if(count($conditions) > 0) {
-			if($att == '') {
-				return implode($delim, $conditions);
-			} else
-				return $att.' = '.implode($delim.$att.' = ', $conditions);
-		}
-		return 'NULL';
-	}
-
-	function searchProfiles($conditions) {
-		global $pdo;
-		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
-		if(count($conditions) > 0) {
-			$sql .= " where ";
-			$checkSet = array('id', 'firstname', 'surname', 'mi', 'course');
-			$checkMinMax = array('yrMin', 'yrMax', 'ageMin', 'ageMax', 'loawRecordMin', 'loawRecordMax', 
-						'y1s1Min', 'y1s1Max', 'y1s2Min', 'y1s2Max', 'y2s0Min', 'y2s0Max', 'y2s1Min', 'y2s1Max', 'y2s2Min', 'y2s2Max', 'y3s0Min', 'y3s0Max', 'y3s1Min', 'y3s1Max', 'y3s2Min', 'y3s2Max', 'y4s0Min', 'y4s0Max', 'y4s1Min', 'y4s1Max', 'y4s2Min', 'y4s2Max', 'y5s0Min', 'y5s0Max', 'y5s1Min', 'y5s1Max', 'y5s2Min', 'y5s2Max', 
-						'riskMin', 'riskMax');
-			$checkArray = array('gender', 'scholar', 'dormer', 'currentStatus', 
-						'familyLivingSituation', 'atmosphereAtHome', 'parentsMaritalStatus', 'relFather', 'relMother', 
-						'spiritualSubscale', 'godSubscale', 
-						'problemSolving', 'seekingSocialSupport', 'avoidance', 
-						'lvlDepression', 'lvlAnxiety', 
-						'suicideBehavior', 'suicidalThoughts', 
-						'hypochondriasis', 'depression', 'denial', 'interpersonalProblems', 'alienation', 'persecutoryIdeas', 'anxiety', 'thinkingDisorder', 'impulseExpression', 'socialIntroversion', 'selfDeprication', 'deviation', 
-						'mentalDisorder', 
-						'alcoholUse', 'drugUse', 
-						'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicideActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvent', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
-			$condition = array();
-			for($i = 0; count($checkSet) > $i; $i++) {
-				if(isset($conditions[$checkSet[$i]])) {
-					$condition[] = $checkSet[$i].' = :'.$checkSet[$i];
-				}
-			}
-			for($i = 0; count($checkMinMax) > $i; $i++) {
-				$att = substr($checkMinMax[$i], 0, 	strlen($checkMinMax[$i]) - 3);
-				if(isset($conditions[$checkMinMax[$i]])) {
-					$condition[] = $att.' >= :'.$checkMinMax[$i];
-				}
-				if(isset($conditions[$checkMinMax[$i++]])) {
-					$condition[] = $att.' <= :'.$checkMinMax[$i];
-				}
-			}
-			for($i = 0; count($checkArray) > $i; $i++) {
-				if(isset($conditions[$checkArray[$i]])) {
-					$condition[] = $conditions[$checkArray[$i]];
-				}
-			}
-			$sql .= structDelim($condition, ' and ');
-		}
-	
-		try {
-			$s = $pdo->prepare($sql);
-			if(count($conditions) > 0) {
-				foreach($checkSet as $check) {
-					if(isset($conditions[$check])) {
-						$s->bindValue(':'.$check, $conditions[$check]);
-					}
-				}
-				foreach($checkMinMax as $minMax) {
-					if(isset($conditions[$minMax])) {
-						$s->bindValue(':'.$minMax, $conditions[$minMax]);
-					}
-				}
-			}
-			$s->execute();
-			return $s;
-		} catch(PDOException $e) {
-			return '';
-		}
-	}
-
-	function searchRiskProfiles() {
-		global $pdo;
-
-		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student where risk > 5";
-		
-		try {
-			$s = $pdo->prepare($sql);
-			$s->execute();
-			return $s;
-		} catch(PDOException $e) {
-			return '';
-		}
 	}
 
 	function searchReports($conditions) {

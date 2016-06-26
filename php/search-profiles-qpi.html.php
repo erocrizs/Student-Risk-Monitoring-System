@@ -7,18 +7,18 @@
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y1s1-min' class="form-control" name="qpi-1-1-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y1s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s1Min') ?>" />
 				and at most:
-					<input type="number" name='y1s1-max' class="form-control" name="qpi-1-1-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y1s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s1Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 2</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y1s2-min' class="form-control" name="qpi-1-2-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y1s2Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s2Min') ?>" />
 				and at most:
-					<input type="number" name='y1s2-max' class="form-control" name="qpi-1-2-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y1s2Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s2Max') ?>" />
 			</p>
 		</li>
 	</ul>
@@ -30,27 +30,27 @@
 			<p class="collapse-trigger">Sem Int</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y2s0-min' class="form-control" name="qpi-2-0-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s0Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s0Min') ?>" />
 				and at most:
-					<input type="number" name='y2s0-max' class="form-control" name="qpi-2-0-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s0Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s0Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y2s1-min' class="form-control" name="qpi-2-1-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s1Min') ?>" />
 				and at most:
-					<input type="number" name='y2s1-max' class="form-control" name="qpi-2-1-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s1Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 2</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y2s2-min' class="form-control" name="qpi-2-2-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s2Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s2Min') ?>" />
 				and at most:
-					<input type="number" name='y2s2-max' class="form-control" name="qpi-2-2-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y2s2Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y2s2Max') ?>" />
 			</p>
 		</li>
 	</ul>
@@ -62,27 +62,27 @@
 			<p class="collapse-trigger">Sem Int</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y3s0-min' class="form-control" name="qpi-3-0-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s0Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s0Min') ?>" />
 				and at most:
-					<input type="number" name='y3s0-max' class="form-control" name="qpi-3-0-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s0Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s0Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y3s1-min' class="form-control" name="qpi-3-1-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s1Min') ?>" />
 				and at most:
-					<input type="number" name='y3s1-max' class="form-control" name="qpi-3-1-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s1Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 2</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y3s2-min' class="form-control" name="qpi-3-2-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s2Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s2Min') ?>" />
 				and at most:
-					<input type="number" name='y3s2-max' class="form-control" name="qpi-3-2-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y3s2Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y3s2Max') ?>" />
 			</p>
 		</li>
 	</ul>
@@ -94,27 +94,27 @@
 			<p class="collapse-trigger">Sem Int</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y4s0-min' class="form-control" name="qpi-4-0-min" min="0" max="4" step="1" form="filter"/>
+					<input type="number" name='y4s0Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s0Min') ?>" />
 				and at most:
-					<input type="number" name='y4s0-max' class="form-control" name="qpi-4-0-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y4s0Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s0Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y4s1-min' class="form-control" name="qpi-4-1-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y4s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s1Min') ?>" />
 				and at most:
-					<input type="number" name='y4s1-max' class="form-control" name="qpi-4-1-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y4s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s1Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 2</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y4s2-min' class="form-control" name="qpi-4-2-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y4s2Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s2Min') ?>" />
 				and at most:
-					<input type="number" name='y4s2-max' class="form-control" name="qpi-4-2-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y4s2Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y4s2Max') ?>" />
 			</p>
 		</li>
 	</ul>
@@ -126,27 +126,27 @@
 			<p class="collapse-trigger">Sem Int</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y5s0-min' class="form-control" name="qpi-5-0-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s0Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s0Min') ?>" />
 				and at most:
-					<input type="number" name='y5s0-max' class="form-control" name="qpi-5-0-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s0Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s0Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y5s1-min' class="form-control" name="qpi-5-1-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s1Min') ?>" />
 				and at most:
-					<input type="number" name='y5s1-max' class="form-control" name="qpi-5-1-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s1Max') ?>" />
 			</p>
 		</li>
 		<li>
 			<p class="collapse-trigger">Sem 2</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y5s2-min' class="form-control" name="qpi-5-2-min" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s2Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s2Min') ?>" />
 				and at most:
-					<input type="number" name='y5s2-max' class="form-control" name="qpi-5-2-max" min="0" max="4" step="0.01" form="filter"/>
+					<input type="number" name='y5s2Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y5s2Max') ?>" />
 			</p>
 		</li>
 	</ul>

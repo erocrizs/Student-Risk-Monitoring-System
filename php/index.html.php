@@ -17,8 +17,8 @@
 			</div>
 			<div class="panel-body">
 				<form action="." method="post">
-					<input type="text" name ="username" class="form-control" placeholder="Username" value="<?php echo getPost('username') ?>" />
-					<input type="password" name = "password" class="form-control" placeholder="Password" value="<?php echo getPost('password') ?>" />
+					<input type="text" name ="username" class="form-control" placeholder="Username" value="<?php echo getPost('username'); ?>" />
+					<input type="password" name = "password" class="form-control" placeholder="Password" value="<?php echo getPost('password'); ?>" />
 					<div>
 						<input type="submit" name="log-in" class="btn btn-primary login-button" value="Log In"></input>
 						<?php if(issetPost('invalid')) { ?>

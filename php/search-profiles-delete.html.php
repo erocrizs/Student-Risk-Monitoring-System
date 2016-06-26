@@ -7,7 +7,7 @@
 		</div>
 		<div class="panel-body">
 			<p>This action will be irreversible.</p>
-			<form action="?" method="post" id="delete" target="_blank">
+			<form action="." method="post" id="delete" target="_blank">
 				<div class="inline space-around center-align">
 					<div>
 						<button id="delete-profile" type="submit" class="btn btn-danger" >Delete Profiles</button>

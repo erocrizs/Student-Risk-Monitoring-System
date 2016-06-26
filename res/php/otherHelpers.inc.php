@@ -8,49 +8,72 @@
 		exit();
 	}
 
-	function setPost($index, $value) {
-		$_POST[$index] = $value;
+	function set($array, $index, $value) {
+		$array[$index] = $value;
 	}
 
-	function getPost($index) {
-		if(isset($_POST[$index])) {
-			return $_POST[$index];
-		}
+	function get($array, $index) {
+		if(isset($array[$index]))
+			return $array[$index];
 		return '';
+	}
+
+	function checked($array, $index, $value) {
+		if(!isset($array[$index]))
+			return false;
+		for($i = 0; count($array[$index]) > $i; $i++) {
+			if($array[$index][$i] == $value)
+				return true;
+		}
+		return false;
 	}
 
 	function issetPost($index) {
 		return isset($_POST[$index]);
 	}
 
-	function setGet($index, $value) {
-		$_Get[$index] = $value;
+	function setPost($index, $value) {
+		set($_POST, $index, $value);
 	}
 
-	function getGet($index) {
-		if(isset($_GET[$index])) {
-			return $_GET[$index];
-		}
-		return '';
+	function getPost($index) {
+		return get($_POST, $index);
+	}
+
+	function checkedPost($index, $value) {
+		return checked($_POST, $index, $value);
 	}
 
 	function issetGet($index) {
 		return isset($_GET[$index]);
 	}
 
-	function setSession($index, $value) {
-		$_SESSION[$index] = $value;
+	function setGet($index, $value) {
+		set($_GET, $index, $value);
 	}
 
-	function getSession($index) {
-		if(isset($_SESSION[$index])) {
-			return $_SESSION[$index];
-		}
-		return '';
+	function getGet($index) {
+		return get($_GET, $index);
+	}
+
+	function checkedGet($index, $value) {
+		return checked($_GET, $index, $value);
 	}
 
 	function issetSession($index) {
 		return isset($_SESSION[$index]);
+	}
+
+	function setSession($index, $value) {
+		set($_SESSION, $index, $value);
+	}
+
+	function getSession($index) {
+		return get($_SESSION, $index);
+	}
+
+	function checkedSession($index, $value) {
+		return checked($_SESSION, $index, $value);
 	}
 ?>
 	

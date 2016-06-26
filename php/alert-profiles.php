@@ -10,10 +10,12 @@
 
 	connect('strims', 'root', 'Martinez');
 
-	$riskResultTemp = searchRiskProfiles();
-	if($riskResultTemp != '') {
-		$searchResult = $riskResultTemp;
+	if(!issetSession('account')) {
+		include 'index.php';
+		exit();
 	}
+
+	$searchResult = searchRiskProfiles();
 
 	include 'alert-profiles.html.php';
 ?>
