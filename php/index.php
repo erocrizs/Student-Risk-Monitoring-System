@@ -7,27 +7,25 @@
 	
 	magicQuotes();
 
-	if(isset($_POST["log-out"])) {
-		$_SESSION["username"] = NULL;
-		$_SESSION['type'] = NULL;
+	if(issetPost('logout')) {
+		setSession('account', NULL);
+	}
+
+	if(issetSession('account')) {
+		include 'home.html.php';
+		exit();
 	}
 
 	connect('strims', 'root', 'Martinez');
 
-	if(isset($_POST["username"])) {
-		$_SESSION["username"] = $_POST["username"];
-		$_SESSION["password"] = $_POST["password"];
-	}
-
-	if(isset($_SESSION["username"])) {
-		$type = login($_SESSION["username"], $_SESSION["password"]);
-		if($type != '') {
-			$_SESSION['type'] = $type;
+	if(issetPost('username') || issetPost('password')) {
+		$account = login(getPost('username'), getPost('password'));
+		if($account != NULL) {
+			setSession('account', $account);
 			include 'home.html.php';
 			exit();
-		}
-		else if($type == 'connection') {
-			
+		} else {
+			setPost('invalid', true);
 		}
 	}
 

@@ -7,8 +7,7 @@
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$pdo->exec('set names "ascii"');
 		} catch(PDOException $e) {
-			include 'index.php';
-			exit();
+			noConnection();
 		}
 	}
 
@@ -21,10 +20,10 @@
 			$s->bindValue(":password", $password);
 			$s->execute();
 		} catch(PDOException $e) {
-			return 'connection';
+			noConnection();
 		}
 
-		return $s->fetch()['type'];
+		return $s->fetch();
 	}
 
 	function addProfile($profile) {

@@ -19,24 +19,24 @@
 
 			<div class="navbar-logout inline center-align space-between">
 
-				<?php echo $_SESSION["username"] ?> (
-				<form action="." method="post">
-					<input type="submit" name="log-out" id="log-out-button" class="button-as-link" value="LOG OUT" />
+			<?php echo getSession('account')['username'] ?> (
+				<form action="index.php" method="post">
+					<input type="submit" name="logout" id="log-out-button" class="button-as-link" value="LOG OUT" />
 				</form>
-				)
+			)
 
 			</div>
 		</header>
 		<div class="container tabs">
 			
 			<ul class="nav nav-tabs">
-			 	<li role="presentation" class="active"><a href="#">Alert Profiles</a></li>
-			 	<li role="presentation"><a href="#">Search Profiles</a></li>
-			 	<li role="presentation"><a href="#">Search Reports</a></li>
-			 	<?php if($_SESSION['type'] == 'admin') { ?>
-				 	<li role="presentation"><a href="#">Add Profiles</a></li>
-				 	<li role="presentation"><a href="#">Add Reports</a></li>
-				 	<li role="presentation"><a href="#">Manage Accounts</a></li>
+			 	<li role="presentation" class="active"><a>Alert Profiles</a></li>
+			 	<li role="presentation"><a>Search Profiles</a></li>
+			 	<li role="presentation"><a>Search Reports</a></li>
+			 	<?php if(getSession('account')['type'] == 'admin') { ?>
+				 	<li role="presentation"><a>Add Profiles</a></li>
+				 	<li role="presentation"><a>Add Reports</a></li>
+				 	<li role="presentation"><a>Manage Accounts</a></li>
 			 	<?php } ?>
 			</ul>
 		</div>
@@ -44,10 +44,10 @@
 			<iframe src="alert-profiles.php" class="content embed-responsive-item" id="alert-profile-frame" scrolling="yes" frameBorder="0"></iframe>
 			<iframe src="search-profiles.php" class="content embed-responsive-item" id="s-profile-frame" scrolling="no" frameBorder="0"></iframe>
 			<iframe src="search-reports.php" class="content embed-responsive-item" id="s-report-frame" scrolling="no" frameBorder="0"></iframe>
-			<?php if($_SESSION['type'] == 'admin') { ?>
+			<?php if(getSession('account')['type'] == 'admin') { ?>
 				<iframe src="add-profiles.php" class="content embed-responsive-item" id="a-profile-frame" scrolling="yes" frameBorder="0"></iframe>
-				<iframe src="add-reports.html" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
-				<iframe src="manage-accounts.html" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
+				<iframe src="add-reports.php" class="content embed-responsive-item" id="a-report-frame" scrolling="no" frameBorder="0"></iframe>
+				<iframe src="manage-accounts.php" class="content embed-responsive-item" id="manage-account-frame" scrolling="no" frameBorder="0"></iframe>
 			<?php } ?>
 		</div>
 	</body>
