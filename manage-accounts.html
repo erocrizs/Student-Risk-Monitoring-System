@@ -75,6 +75,51 @@
 					</form>
 				</div>
 
+				<div id="add-account" class="account-box panel">
+					<form action="?" method="post" id="new-account">
+
+						<div class="inline space-between vertical-margin">
+							<div class="inline center-align two-col">
+								<label for="account-name" class="flex-40">Account Name: </label>
+								<input type="text" name="account-name" id="account-name" class="form-control flex-60" required/>
+							</div>
+							<div class="inline center-align two-col">
+								<label for="account-type" class="flex-40">Account Type: </label>
+								<select name="account-type" id="account-type" class="form-control flex-60" required>
+									<option value="1">LS-OAA</option>
+									<option value="2">RH</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="inline space-between vertical-margin">
+							<div class="inline center-align two-col">
+								<label for="default-password" class="flex-40">Generated Password: </label>
+								<div class="inline btn-group flex-60">
+									<input type="password" name="default-password" id="default-password" class="btn form-control flex-60"/>
+									<button type="button" class="btn btn-default form-control" id='def-pass-visible'>
+										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="btn btn-default form-control" id='def-pass-random'>
+										<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+									</button>
+								</div>
+							</div>
+							<div class="inline center-align two-col">
+								<!-- empty -->
+							</div>
+						</div>
+
+						<hr />
+
+						<div class="decision-buttons inline space-between vertical-margin">
+							<button type="button" id="reset" class="btn btn-primary form-control">Clear Form</button>
+							<button type="submit" class="btn btn-primary form-control">Create Account</button>
+						</div>
+
+					</form>
+				</div>
+
 			</div>
 
 		</div>

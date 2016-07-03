@@ -358,3 +358,11 @@ textarea {
 	width: auto;
 	height: 35px;
 }
+
+.non-admin-accounts #add-account {
+	background-color: #8080ff;
+	border-color: #000066;
+	border-style: solid;
+	border-width: 2px;
+	font-color: black;
+}
