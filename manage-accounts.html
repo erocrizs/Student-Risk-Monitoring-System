@@ -41,11 +41,11 @@
 								<label for="default-password" class="flex-40">Password Replacement: </label>
 								<div class="inline btn-group flex-60">
 									<input type="password" name="default-password" id="default-password" class="btn form-control flex-60"/>
-									<button type="button" class="btn btn-default form-control" id='def-pass-random'>
-										<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-									</button>
 									<button type="button" class="btn btn-default form-control" id='def-pass-visible'>
 										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="btn btn-default form-control" id='def-pass-random'>
+										<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 									</button>
 								</div>
 							</div>
@@ -82,11 +82,13 @@
 		<div class="dim-screen">
 			<div class="center-prompt panel panel-danger">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure you want to delete this account?</h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure?</h3>
 				</div>
 				<div class="panel-body">
-					<p><strong>Account Name: <span id="to-be-deleted"></span></strong></p>
-					<p>This action will be irreversible.</p>
+					<p>
+						<strong>Account Name: <span id="to-be-deleted"></span></strong><br />
+						This action will be irreversible. 
+					</p>
 					<div class="inline space-around center-align">
 						<div>
 							<button id="delete-account" type="submit" class="btn btn-danger" form="deleteAccount" >Delete Account</button>
