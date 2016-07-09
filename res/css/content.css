@@ -350,19 +350,40 @@ textarea {
 	flex: 0 0 15%;
 }
 
-.non-admin-accounts .account-box hr {
+.non-admin-accounts .account-box hr .non-admin-accounts #add-account hr {
 	border-color: #8888e6;
 }
 
-.non-admin-accounts .account-box .decision-buttons button {
+.non-admin-accounts .account-box .decision-buttons button, .non-admin-accounts #add-account .decision-buttons button {
 	width: auto;
 	height: 35px;
 }
 
 .non-admin-accounts #add-account {
+	padding: 20px;
 	background-color: #8080ff;
 	border-color: #000066;
 	border-style: solid;
 	border-width: 2px;
 	font-color: black;
+}
+
+.non-admin-accounts #add-account hr {
+	border-color: #b3b3ff;
+}
+
+.non-admin-accounts input {
+	text-align: left;
+}
+
+.non-admin-accounts .reset-password-radio label {
+	z-index: 0 !important;
+}
+
+.delete-account-dim-screen .admin-password-delete {
+	margin-bottom: 10px;
+}
+
+.delete-account-dim-screen .center-prompt-delete-account {
+	height: 200px;
 }

@@ -76,9 +76,26 @@ $(document).ready( function() {
 
 		deleteTrigger.click( function() {
 			$('.deleteAccount').attr('id', 'account-'+formId);
+			$('.admin-password-delete').attr('form', 'account-');
+			$('#delete-account').attr('form', 'account-'+formId);
 			$('#to-be-deleted').html( currAccount.accountName );
 			$('.dim-screen').fadeIn();
 		});
 	}
+
+	// new account
+	var passVisibility = $("#add-account #def-pass-visible");
+	passVisibility.click( function() {
+		if(passVisibility.hasClass("active"))
+		{
+			passVisibility.removeClass("active");
+			$("#add-account #password").attr("type", "password");
+		}
+		else
+		{
+			passVisibility.addClass("active");
+			$("#add-account #password").attr("type", "text");
+		}
+	} );
 	
 });

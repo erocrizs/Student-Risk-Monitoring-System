@@ -40,7 +40,7 @@
 							<div class="inline center-align two-col">
 								<label for="default-password" class="flex-40">Password Replacement: </label>
 								<div class="inline btn-group flex-60">
-									<input type="password" name="default-password" id="default-password" class="btn form-control flex-60"/>
+									<input type="password" name="default-password" id="default-password" class="btn form-control"/>
 									<button type="button" class="btn btn-default form-control" id='def-pass-visible'>
 										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 									</button>
@@ -51,7 +51,7 @@
 							</div>
 							<div class="inline center-align two-col">
 								<label for="reset-password" class="flex-40">Reset Password? </label>
-								<div class="inline btn-group radio-btn-group flex-60" id="account-type" data-toggle="buttons" required>
+								<div class="inline btn-group radio-btn-group flex-60 reset-password-radio" id="account-type" data-toggle="buttons" required>
 									<label class="btn btn-default" id="do-reset-password-label">
 										<input type="radio" id="do-reset-password" name="reset-password" value="1" /> Yes
 									</label> 
@@ -75,8 +75,11 @@
 					</form>
 				</div>
 
-				<div id="add-account" class="account-box panel">
+				<div id="add-account" class="panel">
 					<form action="?" method="post" id="new-account">
+						<h4><strong>Add new account</strong></h4>
+
+						<hr />
 
 						<div class="inline space-between vertical-margin">
 							<div class="inline center-align two-col">
@@ -94,14 +97,11 @@
 
 						<div class="inline space-between vertical-margin">
 							<div class="inline center-align two-col">
-								<label for="default-password" class="flex-40">Generated Password: </label>
+								<label for="set-password" class="flex-40">Password: </label>
 								<div class="inline btn-group flex-60">
-									<input type="password" name="default-password" id="default-password" class="btn form-control flex-60"/>
+									<input type="password" name="password" id="password" class="btn form-control"/>
 									<button type="button" class="btn btn-default form-control" id='def-pass-visible'>
 										<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-									</button>
-									<button type="button" class="btn btn-default form-control" id='def-pass-random'>
-										<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 									</button>
 								</div>
 							</div>
@@ -113,7 +113,7 @@
 						<hr />
 
 						<div class="decision-buttons inline space-between vertical-margin">
-							<button type="button" id="reset" class="btn btn-primary form-control">Clear Form</button>
+							<button type="reset" id="reset" class="btn btn-primary form-control">Clear Form</button>
 							<button type="submit" class="btn btn-primary form-control">Create Account</button>
 						</div>
 
@@ -124,16 +124,16 @@
 
 		</div>
 
-		<div class="dim-screen">
-			<div class="center-prompt panel panel-danger">
+		<div class="dim-screen delete-account-dim-screen">
+			<div class="center-prompt center-prompt-delete-account panel panel-danger">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure?</h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure? This action is irreversible. </h3>
 				</div>
 				<div class="panel-body">
 					<p>
 						<strong>Account Name: <span id="to-be-deleted"></span></strong><br />
-						This action will be irreversible. 
 					</p>
+					<input type="password" name="admin-password" class="admin-password-delete form-control" form="deleteAccount" placeholder="Admin Password"/>
 					<div class="inline space-around center-align">
 						<div>
 							<button id="delete-account" type="submit" class="btn btn-danger" form="deleteAccount" >Delete Account</button>
