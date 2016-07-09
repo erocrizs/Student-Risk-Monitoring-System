@@ -12,6 +12,7 @@
 	</head>
 	
 	<body class="container">
+		<?php print_r($student); ?>
 		<!-- Add Individually Section -->
 		<div class="add-indiv">
 			<div class="profile-header inline space-between center-align">
@@ -24,7 +25,7 @@
 				<span class="success-msg">Profile edited successfully.</span>
 			<!---->
 			<hr />
-			<form action="student-profile.php" method="get" id="add-profile-indiv">
+			<form action="student-profile.php" method="post" id="add-profile-indiv">
 				<h4>Personal Information</h4>
 				<div class="padded-side">
 

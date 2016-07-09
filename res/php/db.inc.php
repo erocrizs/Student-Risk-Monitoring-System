@@ -53,7 +53,7 @@
 
 	function searchProfiles($conditions) {
 		global $pdo;
-		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, mobile, email, scholar, dormer, currentStatus, ifnull(nullif(loawRecord, -1), '') loawRecord, 
+		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, birthday, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, mobile, email, scholar, dormer, currentStatus, ifnull(nullif(loawRecord, -1), '') loawRecord, 
 				ifnull(nullif(y1s1, -1), '') y1s1, ifnull(nullif(y1s2, -1), '') y1s2, ifnull(nullif(y2s0, -1), '') y2s0, ifnull(nullif(y2s1, -1), '') y2s1, ifnull(nullif(y2s2, -1), '') y2s2, ifnull(nullif(y3s0, -1), '') y3s0, ifnull(nullif(y3s1, -1), '') y3s1, ifnull(nullif(y3s2, -1), '') y3s2, ifnull(nullif(y4s0, -1), '') y4s0, ifnull(nullif(y4s1, -1), '') y4s1, ifnull(nullif(y4s2, -1), '') y4s2, ifnull(nullif(y5s0, -1), '') y5s0, ifnull(nullif(y5s1, -1), '') y5s1, ifnull(nullif(y5s2, -1), '') y5s2, 
 				familyLivingSituation, atmosphereAtHome, parentsMaritalStatus, relFather, relMother, 
 				spiritualSubscale, godSubscale, 
@@ -192,13 +192,13 @@
 					)";
 			$s = $pdo->prepare($sql);
 			for($i = 0; count($attributesPersonal) > $i; $i++) {
-				$s->bindValue(":".$attributesPersonal[$i], $profile[$attributesPersonal[$i]]);
+				$s->bindParam(":".$attributesPersonal[$i], $profile[$attributesPersonal[$i]]);
 			}
 			for($i = 0; count($attributesQPI) > $i; $i++) {
-				$s->bindValue(":".$attributesQPI[$i], $profile[$attributesQPI[$i]]);
+				$s->bindParam(":".$attributesQPI[$i], $profile[$attributesQPI[$i]]);
 			}
 			for($i = 0; count($attributesFactors) > $i; $i++) {
-				$s->bindValue(":".$attributesFactors[$i], $profile[$attributesFactors[$i]]);
+				$s->bindParam(":".$attributesFactors[$i], $profile[$attributesFactors[$i]]);
 			}
 			$s->bindValue(":risk", $risk);
 			$s->execute();

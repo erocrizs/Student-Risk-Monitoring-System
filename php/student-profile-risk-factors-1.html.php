@@ -3,23 +3,23 @@
 <div class="inline space-between entry-row">
 	<div class="inline center-align two-col">
 		<label for="lvl-of-depression">Level of depression: </label>
-		<select name="lvl-of-depression" id="lvl-of-depression" form="add-profile-indiv" class="form-control">
-			<option value="" selected="selected"></option>
-			<option value="1">None</option>
-			<option value="2">Mild</option>
-			<option value="3">Moderate</option>
-			<option value="4">Moderately severe</option>
-			<option value="5">Severe</option>
+		<select name="lvlDepression" id="lvl-of-depression" form="add-profile-indiv" class="form-control">
+			<option value="" <?php echo compare($student['lvlDepression'], -1) ? "selected='selected'" : '' ?>></option>
+			<option value="1" <?php echo compare($student['lvlDepression'], 1) ? "selected='selected'" : '' ?>>None</option>
+			<option value="2" <?php echo compare($student['lvlDepression'], 2) ? "selected='selected'" : '' ?>>Mild</option>
+			<option value="3" <?php echo compare($student['lvlDepression'], 3) ? "selected='selected'" : '' ?>>Moderate</option>
+			<option value="4" <?php echo compare($student['lvlDepression'], 4) ? "selected='selected'" : '' ?>>Moderately severe</option>
+			<option value="5" <?php echo compare($student['lvlDepression'], 5) ? "selected='selected'" : '' ?>>Severe</option>
 		</select>
 	</div>
 	<div class="inline center-align two-col">
 		<label for="lvl-of-anxiety">Level of anxiety: </label>
-		<select name="lvl-of-anxiety" id="lvl-of-anxiety" form="add-profile-indiv" class="form-control">
-			<option value="" selected="selected"></option>
-			<option value="1">Minimal</option>
-			<option value="2">Mild</option>
-			<option value="3">Moderate</option>
-			<option value="4">Severe</option>
+		<select name="lvlAnxiety" id="lvl-of-anxiety" form="add-profile-indiv" class="form-control">
+			<option value="" <?php echo compare($student['lvlAnxiety'], -1) ? "selected='selected'" : '' ?>></option>
+			<option value="1" <?php echo compare($student['lvlAnxiety'], 1) ? "selected='selected'" : '' ?>>Minimal</option>
+			<option value="2" <?php echo compare($student['lvlAnxiety'], 2) ? "selected='selected'" : '' ?>>Mild</option>
+			<option value="3" <?php echo compare($student['lvlAnxiety'], 3) ? "selected='selected'" : '' ?>>Moderate</option>
+			<option value="4" <?php echo compare($student['lvlAnxiety'], 4) ? "selected='selected'" : '' ?>>Severe</option>
 		</select>
 	</div>
 </div>

@@ -10,7 +10,6 @@
 		<script src="/Student-Risk-Monitoring-System/res/js/bootstrap.min.js"></script>
 	</head>
 	<body class="container">
-		
 		<!-- Add By File Section -->
 		<div class="add-by-file">
 			<h3>Upload a Spreadsheet (.xlsx) File</h3>
@@ -55,7 +54,7 @@
 				<?php elseif($addedProfile == 'id') : ?>
 					<span class="error-msg">The ID number has already been taken.</span>
 				<?php else : ?>
-					<span class="error-msg">Adding failed. Please try again. OUTPUT: <?php echo getPost('add'); ?></span>
+					<span class="error-msg">Adding failed. Please try again.</span>
 				<?php endif; ?>
 			<?php endif; ?>
 
