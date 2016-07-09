@@ -24,6 +24,7 @@
 						<?php if(issetPost('invalid')) { ?>
 								<span class="credential-warning">Invalid credentials.</span>
 						<?php } ?>
+						<?php echo getSession('account'); ?>
 					</div>
 				</form>
 			</div>

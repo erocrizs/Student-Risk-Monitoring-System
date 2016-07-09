@@ -11,7 +11,7 @@
 
 	connect('strims', 'root', 'Martinez');
 
-	if(isset($_POST['apply-filter'])) {
+	if(isset($_POST['applyFilter'])) {
 		$checkEmptyHTML = array('student-id', 'date-reported-min', 'date-reported-max', 'reported-from', 
 								'receiving-office', 'case-handler', 'summary-report', 
 								'risk-for-violence', 'ideation', 'actual-attempts', 'diagnosis', 

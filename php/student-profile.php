@@ -10,7 +10,12 @@
 
 	connect('strims', 'root', 'Martinez');
 
-	$student = searchProfiles(array('id' => $_GET['id']))->fetch();
+	if(!issetSession('account')) {
+		include 'index.php';
+		exit();
+	}
+
+	$student = searchProfiles(array('id' => getPost('id')))->fetch();
 	
 	include 'student-profile.html.php';
 ?>

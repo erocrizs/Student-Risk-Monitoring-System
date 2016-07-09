@@ -8,12 +8,8 @@
 	magicQuotes();
 
 	if(issetPost('logout')) {
-		setSession('account', NULL);
-	}
-
-	if(issetSession('account')) {
-		include 'home.html.php';
-		exit();
+		$_SESSION['account'] = NULL;
+		//setSession('account', NULL);
 	}
 
 	connect('strims', 'root', 'Martinez');
@@ -22,11 +18,17 @@
 		$account = login(getPost('username'), getPost('password'));
 		if($account != NULL) {
 			setSession('account', $account);
+			//$_SESSION['account'] = $account;
 			include 'home.html.php';
 			exit();
 		} else {
 			setPost('invalid', true);
 		}
+	}
+
+	if(issetSession('account')) {
+		include 'home.html.php';
+		exit();
 	}
 
 	include 'index.html.php';

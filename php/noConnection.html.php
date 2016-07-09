@@ -12,5 +12,6 @@
 	
 	<body>
 		<h1>NoConnection</h1>
+		<p> <?php echo $error ?> </p>
 	</body>
 </html>

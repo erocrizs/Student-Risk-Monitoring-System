@@ -29,7 +29,7 @@
 							'hypochondriasis', 'depression', 'denial', 'interpersonalProblems', 'alienation', 'persecutoryIdeas', 'anxiety', 'thinkingDisorder', 'impulseExpression', 'socialIntroversion', 'selfDepreciation', 'deviation', 
 							'mentalDisorder', 
 							'alcoholUse', 'drugUse', 
-							'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicideActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
+							'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicidalActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
 		$checkNums = array(2, 2, 2, 3, 
 							7, 4, 6, 6, 6, 
 							3, 3, 
@@ -50,10 +50,7 @@
 		}
 		for($i = 0; count($checkNum) > $i; $i++) {
 			$check = $checkNum[$i];
-			if(!issetPost($check)) {
-				$conditions[$check] = '('.structDelim(array(-1), '', $check).')';
-			}
-			else if(count(getPost($check)) < $checkNums[$i]) {
+			if(issetPost($check) && count(getPost($check)) < $checkNums[$i]) {
 				$conditions[$check] = '('.structDelim(getPost($check), ' or ', $check).')';
 			}
 		}

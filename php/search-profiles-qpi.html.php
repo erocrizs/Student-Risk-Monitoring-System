@@ -7,9 +7,9 @@
 			<p class="collapse-trigger">Sem 1</p>
 			<p class="collapsee indent">
 				At least:
-					<input type="number" name='y1s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s1Min') ?>" />
+					<input type="number" name='y1s1Min' class="form-control" min="0" max="4" step="0.01" form="filter" value="php echo $student['loawRecord'] ?>" />
 				and at most:
-					<input type="number" name='y1s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="<?php getPost('y1s1Max') ?>" />
+					<input type="number" name='y1s1Max' class="form-control" min="0" max="4" step="0.01" form="filter" value="php echo $student['loawRecord'] ?>" />
 			</p>
 		</li>
 		<li>

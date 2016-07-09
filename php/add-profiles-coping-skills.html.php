@@ -3,7 +3,7 @@
 <div class="inline space-between entry-row">
 	<div class="inline center-align two-col">
 		<label for="problem-solving">Problem solving: </label>
-		<select name="problem-solving" id="problem-solving" form="add-profile-indiv" class="form-control">
+		<select name="problemSolving" id="problem-solving" form="add-profile-indiv" class="form-control">
 			<option value="" selected="selected"></option>
 			<option value="1">Very high</option>
 			<option value="2">High</option>
@@ -14,7 +14,7 @@
 	</div>
 	<div class="inline center-align two-col">
 		<label for="seeking-social-support">Seeking social support: </label>
-		<select name="seeking-social-support" id="seeking-social-support" form="add-profile-indiv" class="form-control">
+		<select name="seekingSocialSupport" id="seeking-social-support" form="add-profile-indiv" class="form-control">
 			<option value="" selected="selected"></option>
 			<option value="1">Very high</option>
 			<option value="2">High</option>

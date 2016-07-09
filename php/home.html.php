@@ -18,7 +18,6 @@
 			</div>
 
 			<div class="navbar-logout inline center-align space-between">
-
 			<?php echo getSession('account')['username'] ?> (
 				<form action="." method="post">
 					<input type="submit" name="logout" id="log-out-button" class="button-as-link" value="LOG OUT" />

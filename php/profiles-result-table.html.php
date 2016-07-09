@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<form action="student-profile.php" method="get" target="_blank" id="link-table">
+<form action="student-profile.php" method="post" target="_blank" id="link-table">
 	<table class="table table-hover">
 		<thead>
 			<th>ID</th>
@@ -9,9 +9,7 @@
 			<th>Course</th>
 			<th>Sex</th>
 			<th>Age</th>
-			<?php if(getSession('account')['risk'] >= 1) : ?>
-				<th>Risks</th>
-			<?php endif ?>
+			<th>Risks</th>
 		</thead>
 		<tbody>
 			<?php if(isset($searchResult)) : ?>
@@ -29,9 +27,7 @@
 						<td><?php if($row['gender'] == 1) : echo 'Male';
 									elseif($row['gender'] == 2) : echo 'Female'; endif; ?></td>
 						<td><?php echo $row['age']; ?></td>
-						<?php if(getSession('account')['risk'] >= 1) : ?>
-							<td><?php echo $row['risk'] ?></td>
-						<?php endif; ?>
+						<td><?php echo $row['risk'] ?></td>
 					</tr>
 				<?php endwhile; ?>
 			<?php endif; ?>

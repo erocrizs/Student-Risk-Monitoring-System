@@ -18,7 +18,7 @@
 
 
 			<div class="control-bar inline space-between center-align">
-				<button type="submit" form="filter" name="apply-filter" class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-filter"></span> Apply Filter </button>
+				<button type="submit" form="filter" name="applyFilter" class="btn btn-primary" id="refresh-button"><span class="glyphicon glyphicon-filter"></span> Apply Filter </button>
 				<div>
 					<button class="btn btn-primary" id="clear-button"><span class="glyphicon glyphicon-repeat"></span> Reset Filter </button>
 					<button class="btn btn-primary" id="delete-link"><span class="glyphicon glyphicon-trash"></span> Delete All </button>

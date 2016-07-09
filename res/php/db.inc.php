@@ -53,7 +53,18 @@
 
 	function searchProfiles($conditions) {
 		global $pdo;
-		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, risk from student";
+		$sql = "select id, surname, firstname, mi, ifnull(nullif(yr, -1), '') yr,  course, gender, ifnull(nullif(timestampdiff(year, birthday, curdate()), 0), '') age, mobile, email, scholar, dormer, currentStatus, ifnull(nullif(loawRecord, -1), '') loawRecord, 
+				ifnull(nullif(y1s1, -1), '') y1s1, ifnull(nullif(y1s2, -1), '') y1s2, ifnull(nullif(y2s0, -1), '') y2s0, ifnull(nullif(y2s1, -1), '') y2s1, ifnull(nullif(y2s2, -1), '') y2s2, ifnull(nullif(y3s0, -1), '') y3s0, ifnull(nullif(y3s1, -1), '') y3s1, ifnull(nullif(y3s2, -1), '') y3s2, ifnull(nullif(y4s0, -1), '') y4s0, ifnull(nullif(y4s1, -1), '') y4s1, ifnull(nullif(y4s2, -1), '') y4s2, ifnull(nullif(y5s0, -1), '') y5s0, ifnull(nullif(y5s1, -1), '') y5s1, ifnull(nullif(y5s2, -1), '') y5s2, 
+				familyLivingSituation, atmosphereAtHome, parentsMaritalStatus, relFather, relMother, 
+				spiritualSubscale, godSubscale, 
+				problemSolving, seekingSocialSupport, avoidance, 
+				lvlDepression, lvlAnxiety, 
+				suicideBehavior, suicidalThoughts, 
+				hypochondriasis, depression, denial, interpersonalProblems, alienation, persecutoryIdeas, anxiety, thinkingDisorder, impulseExpression, socialIntroversion, selfDepreciation, deviation, 
+				mentalDisorder, 
+				alcoholUse, drugUse, 
+				hopelessness, traumaAbuse, physicalIllness, pastSuicidalActs, familyHistorySuicide, familyHistoryMental, stressfulLifeEvents, relationalSocialLoss, accessLethalMeans, disciplinaryCases, sexualOrientation, 
+				risk from student";
 		if(count($conditions) > 0) {
 			$sql .= " where ";
 			$checkSet = array('id', 'firstname', 'surname', 'mi', 'course');
@@ -66,10 +77,10 @@
 						'problemSolving', 'seekingSocialSupport', 'avoidance', 
 						'lvlDepression', 'lvlAnxiety', 
 						'suicideBehavior', 'suicidalThoughts', 
-						'hypochondriasis', 'depression', 'denial', 'interpersonalProblems', 'alienation', 'persecutoryIdeas', 'anxiety', 'thinkingDisorder', 'impulseExpression', 'socialIntroversion', 'selfDeprication', 'deviation', 
+						'hypochondriasis', 'depression', 'denial', 'interpersonalProblems', 'alienation', 'persecutoryIdeas', 'anxiety', 'thinkingDisorder', 'impulseExpression', 'socialIntroversion', 'selfDepreciation', 'deviation', 
 						'mentalDisorder', 
 						'alcoholUse', 'drugUse', 
-						'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicideActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
+						'hopelessness', 'traumaAbuse', 'physicalIllness', 'pastSuicidalActs', 'familyHistorySuicide', 'familyHistoryMental', 'stressfulLifeEvents', 'relationalSocialLoss', 'accessLethalMeans', 'disciplinaryCases', 'sexualOrientation');
 			$condition = array();
 			for($i = 0; count($checkSet) > $i; $i++) {
 				if(isset($conditions[$checkSet[$i]])) {
@@ -93,7 +104,7 @@
 			}
 			$sql .= structDelim($condition, ' and ');
 		}
-	
+
 		try {
 			$s = $pdo->prepare($sql);
 			if(count($conditions) > 0) {
@@ -111,7 +122,7 @@
 			$s->execute();
 			return $s;
 		} catch(PDOException $e) {
-			noConnection();
+			noConnection($e);
 		}
 	}
 
@@ -123,14 +134,17 @@
 			$s->bindValue(":id", $profile['id']);
 			$s->execute();
 		} catch(PDOException $e) {
-			return '';
+			noConnection();
 		}
+		
 		if($s->fetch()['count'] > 0) {
 			return 'id';
 		}
 
 		$attributesPersonal = array('id', 'yr', 'course', 'surname', 'firstname', 'mi', 'gender', 'birthday', 'mobile', 'email', 'scholar', 'dormer', 'currentStatus', 'loawRecord');
 		$attributesQPI = array('y1s1', 'y1s2', 'y2s0', 'y2s1', 'y2s2', 'y3s0', 'y3s1', 'y3s2', 'y4s0', 'y4s1', 'y4s2', 'y5s0', 'y5s1', 'y5s2');
+		$attributesQPIRiskMin = 0.0;
+		$attributesQPIRiskMax = 2.0;
 		$attributesFactors = array('familyLivingSituation', 'atmosphereAtHome', 'parentsMaritalStatus', 'relFather', 'relMother', 
 							'spiritualSubscale', 'godSubscale', 
 							'problemSolving', 'seekingSocialSupport', 'avoidance', 
@@ -156,7 +170,7 @@
 			}
 		}
 		for($i = 0; count($attributesQPI) > $i; $i++) {
-			if($profile[$attributesQPI[$i]] >= 0 and $profile[$attributesQPI[$i]] < 2.0) {
+			if($profile[$attributesQPI[$i]] >= $attributesQPIRiskMin and $profile[$attributesQPI[$i]] < $attributesQPIRiskMax) {
 				$risk++;
 			}
 		}
@@ -189,9 +203,15 @@
 			$s->bindValue(":risk", $risk);
 			$s->execute();
 		} catch(PDOException $e) {
-			return '';
+			noConnection();
 		}
 		return 'success';
+	}
+
+	function parseValue($value) {
+		if($value == NULL)
+			return '';
+		return $value;
 	}
 
 	function parseString($string) {

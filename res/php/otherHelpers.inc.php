@@ -3,7 +3,8 @@
 		return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
 	}
 
-	function noConnection() {
+	function noConnection($error) {
+		$error = $error;
 		include 'noConnection.php';
 		exit();
 	}
@@ -33,7 +34,7 @@
 	}
 
 	function setPost($index, $value) {
-		set($_POST, $index, $value);
+		$_POST[$index] = $value;
 	}
 
 	function getPost($index) {
@@ -49,7 +50,7 @@
 	}
 
 	function setGet($index, $value) {
-		set($_GET, $index, $value);
+		$_GET[$index] = $value;
 	}
 
 	function getGet($index) {
@@ -65,7 +66,7 @@
 	}
 
 	function setSession($index, $value) {
-		set($_SESSION, $index, $value);
+		$_SESSION[$index] = $value;
 	}
 
 	function getSession($index) {
@@ -74,6 +75,10 @@
 
 	function checkedSession($index, $value) {
 		return checked($_SESSION, $index, $value);
+	}
+
+	function compare($value1, $value2) {
+		return $value1 == $value2;
 	}
 ?>
 	

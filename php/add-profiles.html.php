@@ -31,10 +31,10 @@
 
 			<div class="status">
 
-				<?php if(isset($_POST['upload'])) : ?>
-					<?php if($_POST['upload'] == 'success') : ?>
-						<span class="success-msg">Uploaded file successfully. N new profiles added to the database.</span>
-					<?php elseif($_POST['upload'] == 'type') : ?>
+				<?php if(issetPost('upload')) : ?>
+					<?php if(getPost('upload') == 'success') : ?>
+						<span class="success-msg">Uploaded file successfully. <?php echo $addedProfiles ?> profiles has been added to the database.</span>
+					<?php elseif(getPost('upload') == 'type') : ?>
 						<span class="error-msg">Interpretation Error. Make sure the excel file is following the template properly.</span>
 					<?php else : ?>
 						<span class="error-msg">Upload failed. Please try again.</span>
@@ -49,13 +49,13 @@
 		<div class="add-indiv">
 			<h3>Add a Student Profile</h3>
 			
-			<?php if(isset($_POST['add'])) : ?>
-				<?php if($_POST['add'] == 'success') : ?>
+			<?php if($addedProfile) : ?>
+				<?php if($addedProfile == 'success') : ?>
 					<span class="success-msg">Profile added successfully.</span>
-				<?php elseif($_POST['add'] == 'id') : ?>
+				<?php elseif($addedProfile == 'id') : ?>
 					<span class="error-msg">The ID number has already been taken.</span>
 				<?php else : ?>
-					<span class="error-msg">Adding failed. Please try again.</span>
+					<span class="error-msg">Adding failed. Please try again. OUTPUT: <?php echo getPost('add'); ?></span>
 				<?php endif; ?>
 			<?php endif; ?>
 
@@ -147,7 +147,7 @@
 
 				<br />
 				<div class="inline space-around">
-					<input type="submit" name = "add" class="btn btn-primary" value="Add Profile" id="add-profile" />
+					<input type="submit" name = "add" class="btn btn-primary" id="add-profile" />
 				</div>
 				<br />
 			</form>
