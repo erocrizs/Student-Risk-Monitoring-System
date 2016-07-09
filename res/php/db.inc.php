@@ -302,4 +302,34 @@
 			return '';
 		}
 	}
+
+	function addReport($report) {
+		global $pdo;
+
+		$reportString = array('studentId', 'dateReported', 'reportedFrom', 'receivingOffice', 
+							'caseHandler', 'summary', 'riskViolence', 'ideation', 'attempts', 
+							'diagnosis', 'psychiatrist', 'medicine', 'action', 'updatesCaseHandler', 
+							'updatesOHS', 'visitsPsychCounselor');
+
+		try {
+			$sql = "insert into report (studentId, dateReported, reportedFrom, receivingOffice, 
+						caseHandler, summary, riskViolence, ideation, attempts, 
+						diagnosis, psychiatrist, medicine, action, updatesCaseHandler, 
+						updatesOHS, visitsPsychCounselor) 
+					values (
+						:studentId, :dateReported, :reportedFrom, :receivingOffice,
+						:caseHandler, :summary, :riskViolence, :ideation, :attemps,
+						:diagnosis, :psychiatrist, :medicine, :action, :updatesCaseHandler,
+						:updatesOHS, :visitsPsychCounselor
+					)";
+			$s = $pdo->prepare($sql);
+			for($i = 0; count($attributesPersonal) > $i; $i++) {
+				$s->bindValue(":".$reportString[$i], $report[$attributesPersonal[$i]]);
+			}
+			$s->execute();
+		} catch(PDOException $e) {
+			noConnection();
+		}
+		return 'success';
+	}
 ?>

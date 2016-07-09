@@ -23,8 +23,8 @@
 			<div class="inline space-between">
 				<form action="?" method="post" >
 					<div class="inline">
-						<input type="file" class="btn btn-primary" name="xls-file" id="choose-file" />
-						<button type="submit" class="btn btn-primary" id="upload-file" /><span class="glyphicon glyphicon-upload"></span> Upload File</button>
+						<input type="file" class="btn btn-primary" name="file" id="choose-file" />
+						<button type="submit" class="btn btn-primary" id="upload-file" name="upload"/><span class="glyphicon glyphicon-upload"></span> Upload File</button>
 					</div>
 				</form>
 				<a href="res/others/Add Students Template.xlsx" download><button class="btn btn-primary"><span class="glyphicon glyphicon-download"></span> Download Template</button></a>
@@ -60,12 +60,12 @@
 
 					<div class="inline space-between entry-row">
 						<div class="inline center-align three-col">
-							<label for="studentId">ID Number: </label>
-							<input type="text" name="student-id" id="student-id" class="form-control" required="required"/>
+							<label for="student-id">ID Number: </label>
+							<input type="text" name="studentId" id="student-id" class="form-control" required="required"/>
 						</div>
 						<div class="inline center-align three-col">
-							<label for="dateReported">Date Reported: </label>
-							<input type="date" name="date-reported" id="date-reported" class="form-control" />
+							<label for="date-reported">Date Reported: </label>
+							<input type="date" name="dateReported" id="date-reported" class="form-control" />
 						</div>
 						<div class="three-col">
 							<!-- filler -->
@@ -147,7 +147,7 @@
 
 				<br />
 				<div class="inline space-around">
-					<input type="submit" class="btn btn-primary" value="Add Report" id="add-report" />
+					<input type="submit" class="btn btn-primary" value="Add Report" name="add" id="add-report" />
 				</div>
 				<br />
 			</form>
