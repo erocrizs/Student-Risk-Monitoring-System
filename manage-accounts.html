@@ -67,7 +67,7 @@
 						<div class="decision-buttons inline space-between vertical-margin">
 							<div class="inline center-align two-col btn-group">
 								<button type="button" id="reset" class="btn btn-primary form-control">Delete Changes</button>
-								<button type="submit" class="btn btn-primary form-control">Save Changes</button>
+								<button type="button" id="save" class="btn btn-primary form-control">Save Changes</button>
 							</div>
 							<button type="button" class="btn-danger form-control" id="delete-trigger">Delete Account</button>
 						</div>
@@ -114,7 +114,7 @@
 
 						<div class="decision-buttons inline space-between vertical-margin">
 							<button type="reset" id="reset" class="btn btn-primary form-control">Clear Form</button>
-							<button type="submit" class="btn btn-primary form-control">Create Account</button>
+							<button type="button" id="create-account" class="btn btn-primary form-control">Create Account</button>
 						</div>
 
 					</form>
@@ -133,11 +133,31 @@
 					<p>
 						<strong>Account Name: <span id="to-be-deleted"></span></strong><br />
 					</p>
-					<input type="password" name="admin-password" class="admin-password-delete form-control" form="deleteAccount" placeholder="Admin Password"/>
+					<input type="password" name="admin-password" class="admin-password-delete form-control" form="deleteAccount" placeholder="Admin Password" required/>
 					<div class="inline space-around center-align">
 						<div>
-							<button id="delete-account" type="submit" class="btn btn-danger" form="deleteAccount" >Delete Account</button>
+							<button id="delete-account" type="submit" class="btn btn-danger" form="deleteAccount">Delete Account</button>
 							<button id="cancel-delete" type="button" class="btn btn-primary">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="dim-screen verify-changes-dim-screen">
+			<div class="center-prompt center-prompt-verify-changes panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-ok"></span> Verification </h3>
+				</div>
+				<div class="panel-body">
+					<p>
+						<strong>Account Name: <span id="to-be-changed"></span></strong><br />
+					</p>
+					<input type="password" name="admin-password" class="admin-password-verify form-control" form="" placeholder="Admin Password" required/>
+					<div class="inline space-around center-align">
+						<div>
+							<button id="verify-change-account" type="submit" class="btn btn-primary" form="" >Verify</button>
+							<button id="cancel-verify" type="button" class="btn btn-primary">Cancel</button>
 						</div>
 					</div>
 				</div>

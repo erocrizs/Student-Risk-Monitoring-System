@@ -380,7 +380,7 @@ textarea {
 	z-index: 0 !important;
 }
 
-.delete-account-dim-screen .admin-password-delete {
+.delete-account-dim-screen .admin-password-delete, .verify-changes-dim-screen .admin-password-verify {
 	margin-bottom: 10px;
 }
 

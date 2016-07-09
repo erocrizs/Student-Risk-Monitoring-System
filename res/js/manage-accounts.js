@@ -1,10 +1,15 @@
 $(document).ready( function() {
 
-	$('.dim-screen').hide();
+	$('.delete-account-dim-screen').hide();
 	$("#cancel-delete").click(function() {
-		$(".dim-screen").fadeOut();
+		$(".delete-account-dim-screen").fadeOut();
 		$('.deleteAccount').removeAttr('id');
 	});
+
+	$('.verify-changes-dim-screen').hide();
+	$("#cancel-verify").click( function() {
+		$('.verify-changes-dim-screen').fadeOut();
+	} );
 
 	var characterChoices = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
 	function genPass() {
@@ -36,6 +41,7 @@ $(document).ready( function() {
 		var dontResetPasswordToggle = currBox.find('#dont-reset-password');
 		var resetChangesButton = currBox.find("#reset");
 
+		var submitChangesButton = currBox.find("#save");
 		var deleteTrigger = currBox.find("#delete-trigger");
 
 		var currAccount = {
@@ -75,12 +81,20 @@ $(document).ready( function() {
 		} );
 
 		deleteTrigger.click( function() {
-			$('.deleteAccount').attr('id', 'account-'+formId);
-			$('.admin-password-delete').attr('form', 'account-');
-			$('#delete-account').attr('form', 'account-'+formId);
+			$('.deleteAccount').attr('id', 'account-'+accountId);
+			$('.admin-password-delete').attr('form', 'account-'+accountId);
+			$('#delete-account').attr('form', 'account-'+accountId);
 			$('#to-be-deleted').html( currAccount.accountName );
-			$('.dim-screen').fadeIn();
+			$('.delete-account-dim-screen').fadeIn();
 		});
+
+		submitChangesButton.click( function() {
+			$('#verify-change-account').attr('form', formId );
+			$('.admin-password-verify').attr('form', formId );
+			$('.verify-change-account').attr('form', formId );
+			$('#to-be-changed').html( currAccount.accountName );
+			$('.verify-changes-dim-screen').fadeIn();
+		} );
 	}
 
 	// new account
