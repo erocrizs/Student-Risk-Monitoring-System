@@ -64,7 +64,7 @@
 							<input type="text" name="student-id" id="student-id" class="form-control" required="required"/>
 						</div>
 						<div class="inline center-align three-col">
-							<label for="date-reported">Date Reported: </label>
+							<label for="dateReported">Date Reported: </label>
 							<input type="date" name="date-reported" id="date-reported" class="form-control" />
 						</div>
 						<div class="three-col">
@@ -75,28 +75,28 @@
 					<div class="inline space-between entry-row">
 						<div class="inline center-align three-col">
 							<label for="reported-from">Reported From: </label>
-							<input type="text" name="reported-from" id="reported-from" class="form-control"/>
+							<input type="text" name="reportedFrom" id="reported-from" class="form-control"/>
 						</div>
 						<div class="inline center-align three-col">
 							<label for="receiving-office">Receiving Office: </label>
-							<input type="text" name="receiving-office" id="receiving-office" class="form-control"/>
+							<input type="text" name="receivingOffice" id="receiving-office" class="form-control"/>
 						</div>
 						<div class="inline center-align three-col">
 							<label for="case-handler">Case Handler: </label>
-							<input type="text" name="case-handler" id="case-handler" class="form-control"/>
+							<input type="text" name="caseHandler" id="case-handler" class="form-control"/>
 						</div>
 					</div>
 
 					<br />
 					<label for="summary-report">Summary of Report:</label>
 					<br />
-					<textarea name="summary-report" id="summary-report" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<textarea name="summary" id="summary-report" class="form-control" form="add-report-indiv" rows="5"></textarea>
 					<br />
 
 					<div class="inline space-between entry-row">
 						<div class="inline center-align three-col">
 							<label for="risk-for-violence">Risk for Violence: </label>
-							<input type="text" name="risk-for-violence" id="risk-for-violence" class="form-control"/>
+							<input type="text" name="riskViolence" id="risk-for-violence" class="form-control"/>
 						</div>
 						<div class="inline center-align three-col">
 							<label for="ideation">Ideation: </label>
@@ -104,7 +104,7 @@
 						</div>
 						<div class="inline center-align three-col">
 							<label for="actual-attempts">Actual Attempts: </label>
-							<input type="text" name="actual-attempts" id="actual-attempts" class="form-control"/>
+							<input type="text" name="attempts" id="actual-attempts" class="form-control"/>
 						</div>
 					</div>
 
@@ -126,15 +126,16 @@
 					<br />
 					<label for="course-of-action">Course of Action:</label>
 					<br />
-					<textarea name="course-of-action" id="course-of-action" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<textarea name="action" id="course-of-action" class="form-control" form="add-report-indiv" rows="5"></textarea>
 					<br />
 					<label for="updates-case-handler">Updates by Case Handlers:</label>
 					<br />
-					<textarea name="updates-case-handler" id="updates-case-handler" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<textarea name="updatesCaseHandler" id="updates-case-handler" class="form-control" form="add-report-indiv" rows="5"></textarea>
 					<br />
 					<label for="updates-ohs">Updates from OHS:</label>
 					<br />
-					<textarea name="updates-ohs" id="updates-ohs" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<textarea name="updatesOHS" id="updates-ohs" class="form-control" form="add-report-indiv" rows="5"></textarea>
+					<br />
 					<br />
 					<label for="visitsPsychCounselor">Visits with the Psychologist or Councelor:</label>
 					<br />
